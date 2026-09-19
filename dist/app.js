@@ -25,7 +25,7 @@ async function load(){try{
   $('probability').textContent=(data.probability*100).toFixed(1);$('risk-fill').style.width=(data.probability*100)+'%';
   $('published').textContent=pstDate(data.publishedAt)+' PST';$('reviewed').textContent=pstDate(data.reviewedAt)+' PST';
   $('count').textContent=String(data.sources.length).padStart(2,'0')+' SOURCES';
-  $('status-message').textContent=data.scheduleActive?'Scheduled reviews run at 06:00 and 16:00 PST. Publication follows review; the estimate can remain unchanged.':'Initial review complete. Recurring reviews are not yet enabled.';
+  $('status-message').textContent=data.scheduleActive?'Scheduled reviews run at 06:00 and 16:00 PST. Publication follows review; the estimate can remain unchanged.':'';
   $('sources').replaceChildren();
   data.sources.forEach((s,i)=>{
     const article=text('article','', 'source');article.append(text('div',String(i+1).padStart(2,'0'),'source-number'));
