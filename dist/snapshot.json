@@ -1,0 +1,50 @@
+{
+  "publishedAt": "2026-09-19T06:14:00.027Z",
+  "reviewedAt": "2026-09-19T06:09:13Z",
+  "deadline": "2036-12-31T23:59:59Z",
+  "probability": 0.07583112787614413,
+  "scheduleActive": false,
+  "sources": [
+    {
+      "id": "industry-warning-20260909",
+      "publisher": "The Guardian",
+      "date": "2026-09-09",
+      "title": "Industry warnings",
+      "summary": "An Anthropic researcher puts ten-year extinction risk above 10%. An opinion, not a measurement.",
+      "url": "https://www.theguardian.com/technology/2026/sep/09/ai-superintelligence-risks-warnings-scientists-politicians",
+      "type": "Reporting",
+      "checkedAt": "2026-09-19T06:09:13Z"
+    },
+    {
+      "id": "metr-assumptions-20260320",
+      "publisher": "METR",
+      "date": "2026-03-20",
+      "title": "A reality check on capability curves",
+      "summary": "Time-horizon estimates become more sensitive to analysis choices as the evaluation suite saturates. METR also describes a corrected regularization mistake.",
+      "url": "https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/",
+      "type": "Research",
+      "checkedAt": "2026-09-19T06:09:13Z"
+    },
+    {
+      "id": "safety-report-2026",
+      "publisher": "International AI Safety Report",
+      "date": "2026-02",
+      "title": "Extreme outcomes, unresolved probabilities",
+      "summary": "The international review finds substantial disagreement about the likelihood and severity of future loss of control. It does not establish an extinction probability.",
+      "url": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026",
+      "type": "Research",
+      "checkedAt": "2026-09-19T06:09:13Z"
+    },
+    {
+      "id": "aisi-trends-2025",
+      "publisher": "UK AI Security Institute",
+      "date": "2025-12-18",
+      "title": "Capabilities rise. Defenses improve, too.",
+      "summary": "Testing finds progress in cyber skills and simplified self-replication tasks. Some safeguards withstand more effort, although vulnerabilities remain in every tested system.",
+      "url": "https://www.aisi.gov.uk/frontier-ai-trends-report",
+      "type": "Research",
+      "checkedAt": "2026-09-19T06:09:13Z"
+    }
+  ],
+  "excluded": []
+}

@@ -1,0 +1,6 @@
+.DS_Store
+.sites-runtime/
+.env*
+node_modules/
+private/
+scripts/
