@@ -1,29 +1,29 @@
 {
-  "publishedAt": "2026-09-19T06:14:00.027Z",
+  "publishedAt": "2026-09-19T07:53:01.495Z",
   "reviewedAt": "2026-09-19T06:09:13Z",
   "deadline": "2036-12-31T23:59:59Z",
-  "probability": 0.07583112787614413,
+  "probability": 0.07830281222539962,
   "scheduleActive": false,
   "sources": [
     {
-      "id": "industry-warning-20260909",
-      "publisher": "The Guardian",
-      "date": "2026-09-09",
-      "title": "Industry warnings",
-      "summary": "An Anthropic researcher puts ten-year extinction risk above 10%. An opinion, not a measurement.",
-      "url": "https://www.theguardian.com/technology/2026/sep/09/ai-superintelligence-risks-warnings-scientists-politicians",
-      "type": "Reporting",
-      "checkedAt": "2026-09-19T06:09:13Z"
+      "id": "openai-misalignment-20260916",
+      "publisher": "OpenAI",
+      "date": "2026-09-16",
+      "title": "Six new reports of model misalignment",
+      "summary": "OpenAI documents unauthorized actions and concealed mistakes during training and evaluation. These individual cases do not measure how often misalignment occurs.",
+      "url": "https://openai.com/index/model-misalignment-reporting-framework/",
+      "type": "Research",
+      "checkedAt": "2026-09-19T07:51:12Z"
     },
     {
-      "id": "metr-assumptions-20260320",
-      "publisher": "METR",
-      "date": "2026-03-20",
-      "title": "A reality check on capability curves",
-      "summary": "Time-horizon estimates become more sensitive to analysis choices as the evaluation suite saturates. METR also describes a corrected regularization mistake.",
-      "url": "https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/",
+      "id": "anthropic-cyber-assessment-20260909",
+      "publisher": "Anthropic",
+      "date": "2026-09-09",
+      "title": "What real cybersecurity incidents reveal",
+      "summary": "Anthropic analyzes four incidents involving unauthorized access to third-party systems. Follow-up tests find both concerning behavior and improvements in newer models.",
+      "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
       "type": "Research",
-      "checkedAt": "2026-09-19T06:09:13Z"
+      "checkedAt": "2026-09-19T07:51:12Z"
     },
     {
       "id": "safety-report-2026",
@@ -36,6 +36,16 @@
       "checkedAt": "2026-09-19T06:09:13Z"
     },
     {
+      "id": "automated-alignment-20260828",
+      "publisher": "Anthropic",
+      "date": "2026-08-28",
+      "title": "AI researchers test ways to reduce alignment failures",
+      "summary": "Automated research improves results across ten tested failure categories. The authors also report cheating attempts; success on these benchmarks does not establish overall alignment.",
+      "url": "https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures",
+      "type": "Research",
+      "checkedAt": "2026-09-19T07:51:12Z"
+    },
+    {
       "id": "aisi-trends-2025",
       "publisher": "UK AI Security Institute",
       "date": "2025-12-18",
@@ -44,6 +54,56 @@
       "url": "https://www.aisi.gov.uk/frontier-ai-trends-report",
       "type": "Research",
       "checkedAt": "2026-09-19T06:09:13Z"
+    },
+    {
+      "id": "industry-warning-20260909",
+      "publisher": "The Guardian",
+      "date": "2026-09-09",
+      "title": "Industry warnings",
+      "summary": "An Anthropic researcher puts ten-year extinction risk above 10%. An opinion, not a measurement.",
+      "url": "https://www.theguardian.com/technology/2026/sep/09/ai-superintelligence-risks-warnings-scientists-politicians",
+      "type": "Reporting",
+      "checkedAt": "2026-09-19T06:09:13Z"
+    },
+    {
+      "id": "amodei-pacing-202609",
+      "publisher": "Dario Amodei",
+      "date": "2026-09",
+      "title": "A proposal to slow the frontier",
+      "summary": "Anthropic’s CEO proposes embedded independent evaluators and coordinated pacing of AI development. A policy commitment and argument, not proof that safeguards will succeed.",
+      "url": "https://darioamodei.com/post/we-must-pace-the-frontier",
+      "type": "Opinion",
+      "checkedAt": "2026-09-19T07:51:12Z"
+    },
+    {
+      "id": "aisi-sabotage-20260401",
+      "publisher": "UK AI Security Institute",
+      "date": "2026-04-01",
+      "title": "No confirmed sabotage in a focused evaluation",
+      "summary": "A study of four frontier models finds no confirmed research sabotage in its tested scenarios. Task refusals and awareness of evaluations limit what can be concluded.",
+      "url": "https://arxiv.org/abs/2604.00788",
+      "type": "Research",
+      "checkedAt": "2026-09-19T07:51:12Z"
+    },
+    {
+      "id": "metr-assumptions-20260320",
+      "publisher": "METR",
+      "date": "2026-03-20",
+      "title": "A reality check on capability curves",
+      "summary": "Time-horizon estimates become more sensitive to analysis choices as the evaluation suite saturates. METR also describes a corrected regularization mistake.",
+      "url": "https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/",
+      "type": "Research",
+      "checkedAt": "2026-09-19T06:09:13Z"
+    },
+    {
+      "id": "a3-safety-finetuning-20260311",
+      "publisher": "Anthropic Alignment Science",
+      "date": "2026-03-11",
+      "title": "Automating targeted safety improvements",
+      "summary": "An automated finetuning agent addresses sycophancy, political bias, and jailbreaks in small open models. Transfer to frontier systems remains uncertain.",
+      "url": "https://alignment.anthropic.com/2026/automated-alignment-agent/",
+      "type": "Research",
+      "checkedAt": "2026-09-19T07:51:12Z"
     }
   ],
   "excluded": []

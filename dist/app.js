@@ -4,7 +4,11 @@ let snapshot=null;
 function tick(){
   const now=new Date();
   $('clock').textContent=pstDate(now,{month:undefined,day:undefined,second:'2-digit'})+' PST';
-  $('days').replaceChildren(document.createTextNode(Math.max(0,Math.ceil((new Date('2036-12-31T23:59:59Z')-now)/86400000)).toLocaleString()),Object.assign(document.createElement('small'),{textContent:' DAYS'}));
+  const remaining = Math.max(0, Math.floor((new Date(snapshot?.deadline || '2036-12-31T23:59:59Z') - now) / 1000));
+  $('count-days').textContent = Math.floor(remaining / 86400).toLocaleString();
+  $('count-hours').textContent = String(Math.floor(remaining / 3600) % 24).padStart(2,'0');
+  $('count-minutes').textContent = String(Math.floor(remaining / 60) % 60).padStart(2,'0');
+  $('count-seconds').textContent = String(remaining % 60).padStart(2,'0');
   const starts=[0,14].flatMap(hour=>[0,1].map(offset=>new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()+offset,hour)))).filter(d=>d>now).sort((a,b)=>a-b);
   $('next').textContent=snapshot?.scheduleActive?pstDate(starts[0])+' PST':'Not yet enabled';
   if(snapshot && now-new Date(snapshot.reviewedAt)>24*3600000){
