@@ -3,6 +3,16 @@
   "reviewedAt": "2026-09-19T06:09:13Z",
   "deadline": "2036-12-31T23:59:59Z",
   "probability": 0.07830281222539962,
+  "history": [
+    {
+      "at": "2026-09-19T06:14:00.027Z",
+      "probability": 0.07583112787614413
+    },
+    {
+      "at": "2026-09-19T07:53:01.495Z",
+      "probability": 0.07830281222539962
+    }
+  ],
   "scheduleActive": false,
   "sources": [
     {

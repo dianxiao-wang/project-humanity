@@ -19,12 +19,41 @@ function tick(){
 }
 function text(tag,value,className){const el=document.createElement(tag);el.textContent=value;if(className)el.className=className;return el;}
 function safeUrl(value){const u=new URL(value);if(u.protocol!=='https:')throw new Error('Invalid source URL');return u.href;}
+const svgNS='http://www.w3.org/2000/svg';
+const svg=(tag,attributes={})=>{const el=document.createElementNS(svgNS,tag);for(const [key,value] of Object.entries(attributes))el.setAttribute(key,String(value));return el;};
+const percent=value=>(value*100).toFixed(1)+'%';
+function renderHistory(days){
+  const chart=$('history-chart'),tooltip=$('chart-tooltip');chart.replaceChildren();tooltip.hidden=true;
+  const end=new Date(snapshot.publishedAt),start=new Date(end-days*86400000);
+  const points=(snapshot.history||[]).filter(p=>Number.isFinite(p.probability)&&new Date(p.at)>=start&&new Date(p.at)<=end).sort((a,b)=>new Date(a.at)-new Date(b.at));
+  $('history-range').textContent=days+' DAYS';$('history-points').textContent=String(points.length).padStart(2,'0');
+  document.querySelectorAll('.range-button').forEach(button=>{const active=Number(button.dataset.days)===days;button.classList.toggle('active',active);button.setAttribute('aria-pressed',String(active));});
+  if(!points.length){$('history-change').textContent='NO DATA';$('history-summary').textContent='No estimates were recorded in the selected period.';const empty=svg('text',{x:500,y:170,class:'chart-empty'});empty.textContent='No recorded estimates in this range.';chart.append(empty);return;}
+  const change=points.at(-1).probability-points[0].probability;
+  $('history-change').textContent=(change>0?'+':'')+(change*100).toFixed(1)+' PTS';$('history-change').className=change>0?'rise':change<0?'fall':'';
+  const W=1000,H=340,m={top:28,right:28,bottom:45,left:70},innerW=W-m.left-m.right,innerH=H-m.top-m.bottom;
+  const values=points.map(p=>p.probability*100),low=Math.min(...values),high=Math.max(...values),padding=Math.max(.15,(high-low)*.35);
+  const minY=Math.max(0,low-padding),maxY=Math.min(100,high+padding),rangeY=Math.max(.3,maxY-minY);
+  const firstTime=+new Date(points[0].at),lastTime=+new Date(points.at(-1).at),rangeX=Math.max(1,lastTime-firstTime);
+  const x=(p,i)=>points.length===1?m.left+innerW/2:m.left+((+new Date(p.at)-firstTime)/rangeX)*innerW;
+  const y=p=>m.top+(1-((p.probability*100-minY)/rangeY))*innerH;
+  const defs=svg('defs'),gradient=svg('linearGradient',{id:'history-fill',x1:'0',y1:'0',x2:'0',y2:'1'});gradient.append(svg('stop',{offset:'0%','stop-color':'#d6ff62','stop-opacity':'.22'}),svg('stop',{offset:'100%','stop-color':'#d6ff62','stop-opacity':'0'}));defs.append(gradient);chart.append(defs);
+  for(let i=0;i<5;i++){const gy=m.top+(innerH*i/4),value=maxY-(rangeY*i/4);chart.append(svg('line',{x1:m.left,y1:gy,x2:W-m.right,y2:gy,class:'chart-grid'}));const label=svg('text',{x:m.left-14,y:gy+4,class:'chart-axis','text-anchor':'end'});label.textContent=value.toFixed(1)+'%';chart.append(label);}
+  const dateFormat=new Intl.DateTimeFormat('en-US',{timeZone:'Etc/GMT+8',month:'short',day:'numeric'}),timeFormat=new Intl.DateTimeFormat('en-US',{timeZone:'Etc/GMT+8',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false});
+  const axisDates=points.length===1?[points[0]]:[points[0],points.at(-1)];axisDates.forEach((p,i)=>{const label=svg('text',{x:points.length===1?m.left+innerW/2:i?W-m.right:m.left,y:H-14,class:'chart-axis','text-anchor':points.length===1?'middle':i?'end':'start'});label.textContent=dateFormat.format(new Date(p.at)).toUpperCase();chart.append(label);});
+  const coordinates=points.map((p,i)=>[x(p,i),y(p)]),line=coordinates.map((p,i)=>(i?'L':'M')+p[0].toFixed(2)+' '+p[1].toFixed(2)).join(' ');
+  if(points.length>1){chart.append(svg('path',{d:line+' L '+coordinates.at(-1)[0]+' '+(m.top+innerH)+' L '+coordinates[0][0]+' '+(m.top+innerH)+' Z',class:'chart-area'}));chart.append(svg('path',{d:line,class:'chart-line'}));}
+  function showPoint(index){const p=points[index],[px,py]=coordinates[index];tooltip.replaceChildren(text('strong',percent(p.probability)),text('span',timeFormat.format(new Date(p.at))+' PST'));tooltip.hidden=false;tooltip.style.left=(px/W*100)+'%';tooltip.style.top=(py/H*100)+'%';chart.querySelectorAll('.chart-point').forEach((node,i)=>node.classList.toggle('selected',i===index));}
+  points.forEach((p,i)=>{const [px,py]=coordinates[i],point=svg('circle',{cx:px,cy:py,r:points.length===1?7:5,class:'chart-point',tabindex:'0',role:'button','aria-label':percent(p.probability)+' on '+timeFormat.format(new Date(p.at))+' PST'});point.addEventListener('pointerenter',()=>showPoint(i));point.addEventListener('focus',()=>showPoint(i));point.addEventListener('click',()=>showPoint(i));point.addEventListener('blur',()=>{tooltip.hidden=true;point.classList.remove('selected');});chart.append(point);});
+  $('history-summary').textContent=points.length+' estimates in the last '+days+' days, from '+percent(points[0].probability)+' to '+percent(points.at(-1).probability)+'.';
+}
 async function load(){try{
   const r=await fetch('/snapshot.json',{cache:'no-store'});if(!r.ok)throw new Error('Snapshot unavailable');
   const data=await r.json();if(!Number.isFinite(data.probability)||data.probability<0||data.probability>1)throw new Error('Invalid estimate');snapshot=data;
   $('probability').textContent=(data.probability*100).toFixed(1);$('risk-fill').style.width=(data.probability*100)+'%';
   $('published').textContent=pstDate(data.publishedAt)+' PST';$('reviewed').textContent=pstDate(data.reviewedAt)+' PST';
   $('count').textContent=String(data.sources.length).padStart(2,'0')+' SOURCES';
+  renderHistory(7);
   $('status-message').textContent=data.scheduleActive?'Scheduled reviews run at 06:00 and 16:00 PST. Publication follows review; the estimate can remain unchanged.':'';
   $('sources').replaceChildren();
   data.sources.forEach((s,i)=>{
@@ -38,4 +67,5 @@ async function load(){try{
   if(data.excluded.length){$('excluded-section').hidden=false;$('excluded-count').textContent='('+data.excluded.length+')';for(const s of data.excluded){const a=text('a',s.title+' — '+s.status);a.href=safeUrl(s.url);a.target='_blank';a.rel='noopener noreferrer';$('excluded').append(a);}}
   tick();
 }catch(error){$('status-message').textContent='The current snapshot could not be loaded. Please reload to try again.';$('status-message').classList.add('warning');$('sources').replaceChildren(text('p','Source feed unavailable.'));$('published').textContent='Unavailable';$('reviewed').textContent='Unavailable';}}
+document.querySelectorAll('.range-button').forEach(button=>button.addEventListener('click',()=>snapshot&&renderHistory(Number(button.dataset.days))));
 tick();setInterval(tick,1000);load();
