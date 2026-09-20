@@ -11,11 +11,6 @@ function tick(){
   $('count-seconds').textContent = String(remaining % 60).padStart(2,'0');
   const starts=[0,14].flatMap(hour=>[0,1].map(offset=>new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()+offset,hour)))).filter(d=>d>now).sort((a,b)=>a-b);
   $('next').textContent=snapshot?.scheduleActive?pstDate(starts[0])+' PST':'Not yet enabled';
-  if(snapshot && now-new Date(snapshot.reviewedAt)>24*3600000){
-    $('status-message').textContent='REVIEW OVERDUE — This is an archived estimate. Source verification is more than 24 hours old.';
-    $('status-message').classList.add('warning');
-    $('reviewed').textContent='Review overdue';
-  }
 }
 function text(tag,value,className){const el=document.createElement(tag);el.textContent=value;if(className)el.className=className;return el;}
 function safeUrl(value){const u=new URL(value);if(u.protocol!=='https:')throw new Error('Invalid source URL');return u.href;}
@@ -54,7 +49,6 @@ async function load(){try{
   $('published').textContent=pstDate(data.publishedAt)+' PST';$('reviewed').textContent=pstDate(data.reviewedAt)+' PST';
   $('count').textContent=String(data.sources.length).padStart(2,'0')+' SOURCES';
   renderHistory(7);
-  $('status-message').textContent=data.scheduleActive?'Scheduled reviews run at 06:00 and 16:00 PST. Publication follows review; the estimate can remain unchanged.':'';
   $('sources').replaceChildren();
   data.sources.forEach((s,i)=>{
     const article=text('article','', 'source');article.append(text('div',String(i+1).padStart(2,'0'),'source-number'));
@@ -66,6 +60,6 @@ async function load(){try{
   if(!data.sources.length)$('sources').append(text('p','No reviewed sources are currently included.'));
   if(data.excluded.length){$('excluded-section').hidden=false;$('excluded-count').textContent='('+data.excluded.length+')';for(const s of data.excluded){const a=text('a',s.title+' — '+s.status);a.href=safeUrl(s.url);a.target='_blank';a.rel='noopener noreferrer';$('excluded').append(a);}}
   tick();
-}catch(error){$('status-message').textContent='The current snapshot could not be loaded. Please reload to try again.';$('status-message').classList.add('warning');$('sources').replaceChildren(text('p','Source feed unavailable.'));$('published').textContent='Unavailable';$('reviewed').textContent='Unavailable';}}
+}catch(error){$('sources').replaceChildren(text('p','Source feed unavailable.'));$('published').textContent='Unavailable';$('reviewed').textContent='Unavailable';}}
 document.querySelectorAll('.range-button').forEach(button=>button.addEventListener('click',()=>snapshot&&renderHistory(Number(button.dataset.days))));
 tick();setInterval(tick,1000);load();
