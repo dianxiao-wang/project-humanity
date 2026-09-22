@@ -1,16 +1,28 @@
 const $=id=>document.getElementById(id);
-const pstDate=(value,options={})=>new Intl.DateTimeFormat('en-US',{timeZone:'Etc/GMT+8',month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false,...options}).format(new Date(value));
+const pacificTimeZone='America/Los_Angeles';
+const pacificDate=(value,options={})=>new Intl.DateTimeFormat('en-US',{timeZone:pacificTimeZone,month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false,...options}).format(new Date(value));
+const pacificParts=value=>Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:pacificTimeZone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date(value)).filter(part=>part.type!=='literal').map(part=>[part.type,Number(part.value)]));
+function pacificInstant(year,month,day,hour){
+  const localAsUtc=Date.UTC(year,month-1,day,hour);
+  let guess=new Date(localAsUtc);
+  for(let i=0;i<2;i++){const p=pacificParts(guess),represented=Date.UTC(p.year,p.month-1,p.day,p.hour,p.minute,p.second);guess=new Date(localAsUtc-(represented-guess.getTime()));}
+  return guess;
+}
+function nextPacificStart(now){
+  const p=pacificParts(now),candidates=[];
+  for(let dayOffset=0;dayOffset<3;dayOffset++)for(const hour of [6,16])candidates.push(pacificInstant(p.year,p.month,p.day+dayOffset,hour));
+  return candidates.filter(date=>date>now).sort((a,b)=>a-b)[0];
+}
 let snapshot=null;
 function tick(){
   const now=new Date();
-  $('clock').textContent=pstDate(now,{month:undefined,day:undefined,second:'2-digit'})+' PST';
+  $('clock').textContent=pacificDate(now,{month:undefined,day:undefined,second:'2-digit'})+' PT';
   const remaining = Math.max(0, Math.floor((new Date(snapshot?.deadline || '2036-12-31T23:59:59Z') - now) / 1000));
   $('count-days').textContent = Math.floor(remaining / 86400).toLocaleString();
   $('count-hours').textContent = String(Math.floor(remaining / 3600) % 24).padStart(2,'0');
   $('count-minutes').textContent = String(Math.floor(remaining / 60) % 60).padStart(2,'0');
   $('count-seconds').textContent = String(remaining % 60).padStart(2,'0');
-  const starts=[0,14].flatMap(hour=>[0,1].map(offset=>new Date(Date.UTC(now.getUTCFullYear(),now.getUTCMonth(),now.getUTCDate()+offset,hour)))).filter(d=>d>now).sort((a,b)=>a-b);
-  $('next').textContent=snapshot?.scheduleActive?pstDate(starts[0])+' PST':'Not yet enabled';
+  $('next').textContent=snapshot?.scheduleActive?pacificDate(nextPacificStart(now))+' PT':'Not yet enabled';
 }
 function text(tag,value,className){const el=document.createElement(tag);el.textContent=value;if(className)el.className=className;return el;}
 function safeUrl(value){const u=new URL(value);if(u.protocol!=='https:')throw new Error('Invalid source URL');return u.href;}
@@ -34,19 +46,19 @@ function renderHistory(days){
   const y=p=>m.top+(1-((p.probability*100-minY)/rangeY))*innerH;
   const defs=svg('defs'),gradient=svg('linearGradient',{id:'history-fill',x1:'0',y1:'0',x2:'0',y2:'1'});gradient.append(svg('stop',{offset:'0%','stop-color':'#d6ff62','stop-opacity':'.22'}),svg('stop',{offset:'100%','stop-color':'#d6ff62','stop-opacity':'0'}));defs.append(gradient);chart.append(defs);
   for(let i=0;i<5;i++){const gy=m.top+(innerH*i/4),value=maxY-(rangeY*i/4);chart.append(svg('line',{x1:m.left,y1:gy,x2:W-m.right,y2:gy,class:'chart-grid'}));const label=svg('text',{x:m.left-14,y:gy+4,class:'chart-axis','text-anchor':'end'});label.textContent=value.toFixed(1)+'%';chart.append(label);}
-  const dateFormat=new Intl.DateTimeFormat('en-US',{timeZone:'Etc/GMT+8',month:'short',day:'numeric'}),timeFormat=new Intl.DateTimeFormat('en-US',{timeZone:'Etc/GMT+8',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false});
+  const dateFormat=new Intl.DateTimeFormat('en-US',{timeZone:pacificTimeZone,month:'short',day:'numeric'}),timeFormat=new Intl.DateTimeFormat('en-US',{timeZone:pacificTimeZone,month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false});
   const axisDates=points.length===1?[points[0]]:[points[0],points.at(-1)];axisDates.forEach((p,i)=>{const label=svg('text',{x:points.length===1?m.left+innerW/2:i?W-m.right:m.left,y:H-14,class:'chart-axis','text-anchor':points.length===1?'middle':i?'end':'start'});label.textContent=dateFormat.format(new Date(p.at)).toUpperCase();chart.append(label);});
   const coordinates=points.map((p,i)=>[x(p,i),y(p)]),line=coordinates.map((p,i)=>(i?'L':'M')+p[0].toFixed(2)+' '+p[1].toFixed(2)).join(' ');
   if(points.length>1){chart.append(svg('path',{d:line+' L '+coordinates.at(-1)[0]+' '+(m.top+innerH)+' L '+coordinates[0][0]+' '+(m.top+innerH)+' Z',class:'chart-area'}));chart.append(svg('path',{d:line,class:'chart-line'}));}
-  function showPoint(index){const p=points[index],[px,py]=coordinates[index];tooltip.replaceChildren(text('strong',percent(p.probability)),text('span',timeFormat.format(new Date(p.at))+' PST'));tooltip.hidden=false;tooltip.style.left=(px/W*100)+'%';tooltip.style.top=(py/H*100)+'%';chart.querySelectorAll('.chart-point').forEach((node,i)=>node.classList.toggle('selected',i===index));}
-  points.forEach((p,i)=>{const [px,py]=coordinates[i],point=svg('circle',{cx:px,cy:py,r:points.length===1?7:5,class:'chart-point',tabindex:'0',role:'button','aria-label':percent(p.probability)+' on '+timeFormat.format(new Date(p.at))+' PST'});point.addEventListener('pointerenter',()=>showPoint(i));point.addEventListener('focus',()=>showPoint(i));point.addEventListener('click',()=>showPoint(i));point.addEventListener('blur',()=>{tooltip.hidden=true;point.classList.remove('selected');});chart.append(point);});
+  function showPoint(index){const p=points[index],[px,py]=coordinates[index];tooltip.replaceChildren(text('strong',percent(p.probability)),text('span',timeFormat.format(new Date(p.at))+' PT'));tooltip.hidden=false;tooltip.style.left=(px/W*100)+'%';tooltip.style.top=(py/H*100)+'%';chart.querySelectorAll('.chart-point').forEach((node,i)=>node.classList.toggle('selected',i===index));}
+  points.forEach((p,i)=>{const [px,py]=coordinates[i],point=svg('circle',{cx:px,cy:py,r:points.length===1?7:5,class:'chart-point',tabindex:'0',role:'button','aria-label':percent(p.probability)+' on '+timeFormat.format(new Date(p.at))+' PT'});point.addEventListener('pointerenter',()=>showPoint(i));point.addEventListener('focus',()=>showPoint(i));point.addEventListener('click',()=>showPoint(i));point.addEventListener('blur',()=>{tooltip.hidden=true;point.classList.remove('selected');});chart.append(point);});
   $('history-summary').textContent=points.length+' estimates in the last '+days+' days, from '+percent(points[0].probability)+' to '+percent(points.at(-1).probability)+'.';
 }
 async function load(){try{
   const r=await fetch('/snapshot.json',{cache:'no-store'});if(!r.ok)throw new Error('Snapshot unavailable');
   const data=await r.json();if(!Number.isFinite(data.probability)||data.probability<0||data.probability>1)throw new Error('Invalid estimate');snapshot=data;
   $('probability').textContent=(data.probability*100).toFixed(1);$('risk-fill').style.width=(data.probability*100)+'%';
-  $('published').textContent=pstDate(data.publishedAt)+' PST';$('reviewed').textContent=pstDate(data.reviewedAt)+' PST';
+  $('published').textContent=pacificDate(data.publishedAt)+' PT';$('reviewed').textContent=pacificDate(data.reviewedAt)+' PT';
   $('count').textContent=String(data.sources.length).padStart(2,'0')+' SOURCES';
   renderHistory(7);
   $('sources').replaceChildren();
@@ -54,7 +66,7 @@ async function load(){try{
     const article=text('article','', 'source');article.append(text('div',String(i+1).padStart(2,'0'),'source-number'));
     const body=document.createElement('div'),meta=text('div','','source-meta');meta.append(text('span',s.publisher),text('span','/ '+s.date),text('span',s.type,'source-type'));
     const a=document.createElement('a');a.href=safeUrl(s.url);a.target='_blank';a.rel='noopener noreferrer';a.append(text('h3',s.title));
-    body.append(meta,a,text('p',s.summary),text('div','SOURCE REVIEWED / '+pstDate(s.checkedAt)+' PST','source-check'));
+    body.append(meta,a,text('p',s.summary),text('div','SOURCE REVIEWED / '+pacificDate(s.checkedAt)+' PT','source-check'));
     const arrow=text('a','↗','source-arrow');arrow.href=a.href;arrow.target='_blank';arrow.rel='noopener noreferrer';arrow.setAttribute('aria-label','Read '+s.title+' (opens in a new tab)');article.append(body,arrow);$('sources').append(article);
   });
   if(!data.sources.length)$('sources').append(text('p','No reviewed sources are currently included.'));
