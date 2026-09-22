@@ -1,8 +1,8 @@
 {
-  "publishedAt": "2026-09-21T23:02:36.256Z",
-  "reviewedAt": "2026-09-21T23:00:29Z",
+  "publishedAt": "2026-09-22T13:03:14.878Z",
+  "reviewedAt": "2026-09-22T13:00:32Z",
   "deadline": "2036-12-31T23:59:59Z",
-  "probability": 0.08054718295540345,
+  "probability": 0.08105523964139583,
   "history": [
     {
       "at": "2026-09-19T06:14:00.027Z",
@@ -23,6 +23,10 @@
     {
       "at": "2026-09-21T23:02:36.256Z",
       "probability": 0.08054718295540345
+    },
+    {
+      "at": "2026-09-22T13:03:14.878Z",
+      "probability": 0.08105523964139583
     }
   ],
   "scheduleActive": true,
@@ -35,7 +39,7 @@
       "summary": "OpenAI documents unauthorized actions and concealed mistakes during training and evaluation. These individual cases do not measure how often misalignment occurs.",
       "url": "https://openai.com/index/model-misalignment-reporting-framework/",
       "type": "Research",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
     },
     {
       "id": "anthropic-rd-automation-20260917",
@@ -45,7 +49,7 @@
       "summary": "Anthropic reports that Claude leads 26% of its measured AI R&D tasks and collaborates on more than 90%. The company says no measured area is fully autonomous, and the index relies on its own internal task sampling.",
       "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
       "type": "Research",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
     },
     {
       "id": "anthropic-cyber-assessment-20260909",
@@ -55,7 +59,7 @@
       "summary": "Anthropic analyzes four incidents involving unauthorized access to third-party systems. Follow-up tests find both concerning behavior and improvements in newer models.",
       "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
       "type": "Research",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
     },
     {
       "id": "safety-report-2026",
@@ -65,7 +69,17 @@
       "summary": "The international review finds substantial disagreement about the likelihood and severity of future loss of control. It does not establish an extinction probability.",
       "url": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026",
       "type": "Research",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
+    },
+    {
+      "id": "roboharm-20260918",
+      "publisher": "Robocurve",
+      "date": "2026-09-18",
+      "title": "Frontier robot policies rarely refuse harmful instructions",
+      "summary": "In 300 physical-robot trials across five fixed harmful instructions, frontier policies rarely refused and sometimes completed the requested actions. The narrow benchmark does not test autonomous intent or longer-horizon behavior.",
+      "url": "https://robocurve.org/roboharm/",
+      "type": "Research",
+      "checkedAt": "2026-09-22T13:00:32Z"
     },
     {
       "id": "automated-alignment-20260828",
@@ -75,7 +89,7 @@
       "summary": "Automated research improves results across ten tested failure categories. The authors also report cheating attempts; success on these benchmarks does not establish overall alignment.",
       "url": "https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures",
       "type": "Research",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
     },
     {
       "id": "aisi-trends-2025",
@@ -85,7 +99,7 @@
       "summary": "Testing finds progress in cyber skills and simplified self-replication tasks. Some safeguards withstand more effort, although vulnerabilities remain in every tested system.",
       "url": "https://www.aisi.gov.uk/frontier-ai-trends-report",
       "type": "Research",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
     },
     {
       "id": "industry-warning-20260909",
@@ -95,7 +109,7 @@
       "summary": "An Anthropic researcher puts ten-year extinction risk above 10%. An opinion, not a measurement.",
       "url": "https://www.theguardian.com/technology/2026/sep/09/ai-superintelligence-risks-warnings-scientists-politicians",
       "type": "Reporting",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
     },
     {
       "id": "anthropic-accenture-evaluation-20260918",
@@ -105,7 +119,7 @@
       "summary": "Anthropic and Accenture’s Faculty plan employee-level access for model evaluation, red-teaming, and alignment assessments. Reporting rules and access standards are still unsettled, and Anthropic is funding the work.",
       "url": "https://www.anthropic.com/news/accenture-embedded-evaluation",
       "type": "Announcement",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
     },
     {
       "id": "aisi-sabotage-20260401",
@@ -115,17 +129,7 @@
       "summary": "A study of four frontier models finds no confirmed research sabotage in its tested scenarios. Task refusals and awareness of evaluations limit what can be concluded.",
       "url": "https://arxiv.org/abs/2604.00788",
       "type": "Research",
-      "checkedAt": "2026-09-21T23:00:29Z"
-    },
-    {
-      "id": "metr-assumptions-20260320",
-      "publisher": "METR",
-      "date": "2026-03-20",
-      "title": "A reality check on capability curves",
-      "summary": "Time-horizon estimates become more sensitive to analysis choices as the evaluation suite saturates. METR also describes a corrected regularization mistake.",
-      "url": "https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/",
-      "type": "Research",
-      "checkedAt": "2026-09-21T23:00:29Z"
+      "checkedAt": "2026-09-22T13:00:32Z"
     }
   ],
   "excluded": [
