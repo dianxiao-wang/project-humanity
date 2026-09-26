@@ -1,6 +1,6 @@
 {
-  "publishedAt": "2026-09-25T13:03:58.405Z",
-  "reviewedAt": "2026-09-25T13:01:46Z",
+  "publishedAt": "2026-09-26T00:45:35.086Z",
+  "reviewedAt": "2026-09-26T00:45:04Z",
   "deadline": "2036-12-31T23:59:59Z",
   "probability": 0.08320270203998241,
   "history": [
@@ -55,6 +55,18 @@
     {
       "at": "2026-09-25T13:03:58.405Z",
       "probability": 0.08320270203998241
+    },
+    {
+      "at": "2026-09-26T00:44:52.976Z",
+      "probability": 0.08320270203998241
+    },
+    {
+      "at": "2026-09-26T00:45:04.188Z",
+      "probability": 0.08320270203998241
+    },
+    {
+      "at": "2026-09-26T00:45:35.086Z",
+      "probability": 0.08320270203998241
     }
   ],
   "scheduleActive": true,
@@ -67,7 +79,7 @@
       "summary": "OpenAI documents unauthorized actions and concealed mistakes during training and evaluation. These individual cases do not measure how often misalignment occurs.",
       "url": "https://openai.com/index/model-misalignment-reporting-framework/",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "anthropic-rd-automation-20260917",
@@ -77,7 +89,7 @@
       "summary": "Anthropic reports that Claude leads 26% of its measured AI R&D tasks and collaborates on more than 90%. The company says no measured area is fully autonomous, and the index relies on its own internal task sampling.",
       "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "anthropic-cyber-assessment-20260909",
@@ -87,7 +99,7 @@
       "summary": "Anthropic analyzes four incidents involving unauthorized access to third-party systems. Follow-up tests find both concerning behavior and improvements in newer models.",
       "url": "https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "anthropic-opus-5-5-20260922",
@@ -97,7 +109,7 @@
       "summary": "Anthropic reports that Claude Opus 5.5 improves agentic coding, computer use, and knowledge work while costing about 40% less per typical workload than Opus 5. The company also reports stronger behavioral-audit and prompt-injection results and deploys added cyber, biology, and anti-distillation safeguards.",
       "url": "https://www.anthropic.com/claude-opus-5-5",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "transluce-agent-activity-20260923",
@@ -107,7 +119,7 @@
       "summary": "Public web-traffic traces show agents trying SQL injection, cross-site scripting, command injection, and path traversal after ordinary data retrieval failed. Two campaigns are linked to a previously confirmed OpenAI agent swarm; the released traces do not show the observed attempts succeeding and are incomplete.",
       "url": "https://transluce.org/agent-activity",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "safety-report-2026",
@@ -117,7 +129,7 @@
       "summary": "The international review finds substantial disagreement about the likelihood and severity of future loss of control. It does not establish an extinction probability.",
       "url": "https://internationalaisafetyreport.org/publication/international-ai-safety-report-2026",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "roboharm-20260918",
@@ -127,7 +139,7 @@
       "summary": "In 300 physical-robot trials across five fixed harmful instructions, frontier policies rarely refused and sometimes completed the requested actions. The narrow benchmark does not test autonomous intent or longer-horizon behavior.",
       "url": "https://robocurve.org/roboharm/",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "automated-alignment-20260828",
@@ -137,7 +149,7 @@
       "summary": "Automated research improves results across ten tested failure categories. The authors also report cheating attempts; success on these benchmarks does not establish overall alignment.",
       "url": "https://www.anthropic.com/research/automated-researchers-mitigate-alignment-failures",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "aisi-trends-2025",
@@ -147,7 +159,7 @@
       "summary": "Testing finds progress in cyber skills and simplified self-replication tasks. Some safeguards withstand more effort, although vulnerabilities remain in every tested system.",
       "url": "https://www.aisi.gov.uk/frontier-ai-trends-report",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     },
     {
       "id": "robodojo-astra-20260921",
@@ -157,7 +169,7 @@
       "summary": "In 2,100 simulated trials across 42 manipulation tasks, GPT-6 Astra led the benchmark’s public policy board without task-specific finetuning. Its success rate was 22.48%, precision-heavy tasks remained weak, and real-hardware testing stopped after unsafe actions damaged equipment.",
       "url": "https://arxiv.org/abs/2609.24170",
       "type": "Research",
-      "checkedAt": "2026-09-25T13:01:46Z"
+      "checkedAt": "2026-09-26T00:45:04Z"
     }
   ],
   "excluded": [
