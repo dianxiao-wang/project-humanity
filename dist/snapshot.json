@@ -1,5 +1,5 @@
 {
-  "publishedAt": "2026-10-07T20:14:19.167Z",
+  "publishedAt": "2026-10-07T20:21:21.938Z",
   "reviewedAt": "2026-10-07T20:12:20.000Z",
   "deadline": "2036-12-31T23:59:59Z",
   "probability": 0.08384311459466232,
@@ -79,9 +79,13 @@
     {
       "at": "2026-10-07T20:14:19.167Z",
       "probability": 0.08384311459466232
+    },
+    {
+      "at": "2026-10-07T20:21:21.938Z",
+      "probability": 0.08384311459466232
     }
   ],
-  "scheduleActive": true,
+  "scheduleActive": false,
   "sources": [
     {
       "id": "openai-gpt6-rollout-20261007",
