@@ -10,7 +10,7 @@ function pacificInstant(year,month,day,hour){
 }
 function nextPacificStart(now){
   const p=pacificParts(now),candidates=[];
-  for(let dayOffset=0;dayOffset<3;dayOffset++)for(const hour of [6,16])candidates.push(pacificInstant(p.year,p.month,p.day+dayOffset,hour));
+  for(let dayOffset=0;dayOffset<3;dayOffset++)for(const hour of [8])candidates.push(pacificInstant(p.year,p.month,p.day+dayOffset,hour));
   return candidates.filter(date=>date>now).sort((a,b)=>a-b)[0];
 }
 let snapshot=null;
