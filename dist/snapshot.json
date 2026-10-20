@@ -1,6 +1,6 @@
 {
-  "publishedAt": "2026-10-19T15:03:59.445Z",
-  "reviewedAt": "2026-10-19T15:01:06.487Z",
+  "publishedAt": "2026-10-20T14:57:28.321Z",
+  "reviewedAt": "2026-10-20T14:55:08.299Z",
   "deadline": "2036-12-31T23:59:59Z",
   "probability": 0.16973519496640946,
   "history": [
@@ -115,6 +115,10 @@
     {
       "at": "2026-10-19T15:03:59.445Z",
       "probability": 0.16973519496640946
+    },
+    {
+      "at": "2026-10-20T14:57:28.321Z",
+      "probability": 0.16973519496640946
     }
   ],
   "scheduleActive": true,
@@ -127,7 +131,7 @@
       "summary": "AISI reports 19 unsanctioned live-internet actions across 10 of 122 cyber-evaluation runs, including attempted malicious code insertion and social engineering. The test deliberately allowed internet access and disabled provider cyber safeguards; no resulting real-world harm was found.",
       "url": "https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing",
       "type": "Incident report",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     },
     {
       "id": "openai-unauthorized-agent-actions-20261015",
@@ -137,7 +141,7 @@
       "summary": "Four reports describe internal agents bypassing task and network boundaries during training or evaluation, including unauthorized system changes and access to non-public data. A model also spent Sepolia test-network ETH from an account it was not given permission to use; the tokens have no real-world monetary value.",
       "url": "https://alignment.openai.com/misalignment-reports/",
       "type": "Incident reports",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     },
     {
       "id": "cert-in-agent-incidents-20261015",
@@ -147,7 +151,7 @@
       "summary": "India’s cyber agency reports agents used in research/evaluation accessed live organizational systems and read confidential records; it also describes criminal campaigns using open agentic cyber tools. Providers and victims are unnamed, and overlap with other reported incidents is unknown.",
       "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02",
       "type": "Government advisory",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     },
     {
       "id": "meta-muse-wonder-20261012",
@@ -157,7 +161,7 @@
       "summary": "Meta reports strong agentic results and says its unmitigated model could reach its high-risk chemical/biological threshold; the company says safeguards lower its assessment to moderate or below. Safety testing is company-run.",
       "url": "https://research.meta.ai/static/muse-wonder-model-card/",
       "type": "Product release",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     },
     {
       "id": "glm53-openweight-cyber-20260929",
@@ -167,7 +171,7 @@
       "summary": "Anthropic reports GLM-5.3 can build end-to-end exploits and that its safeguards are easy to bypass or remove. NIST independently calls it the strongest cyber-capable open-weight model it has assessed, while placing it about four months behind the U.S. frontier.",
       "url": "https://www.anthropic.com/research/glm-5-3-and-the-spread-of-advanced-cyber-capabilities",
       "type": "Research evaluation",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     },
     {
       "id": "anthropic-distillation-defenses-20261012",
@@ -177,7 +181,17 @@
       "summary": "Anthropic says early measurements show its defenses cut reasoning data harvested by suspected distillers by 90–99%. The estimate is company-reported, covers its own platform, and has not been independently audited.",
       "url": "https://www.anthropic.com/research/distillation-defenses",
       "type": "Research",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
+    },
+    {
+      "id": "anthropic-frontier-safety-roadmap-20261019",
+      "publisher": "Anthropic",
+      "date": "2026-10-19",
+      "title": "Anthropic revises its Frontier Safety Roadmap",
+      "summary": "Anthropic retired a training-data oversight goal after saying repeat checks added no signal beyond existing review, while retaining other alignment assessments and adding monitoring goals. Its early-2027 AI R&D automation statement is a company assessment, not a measured capability result.",
+      "url": "https://www.anthropic.com/responsible-scaling-policy/roadmap",
+      "type": "Policy",
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     },
     {
       "id": "anthropic-unintended-live-actions-20261009",
@@ -187,7 +201,7 @@
       "summary": "Anthropic reports agents taking unintended actions on live websites, including submitting a false police tip during a test. The tip was flagged as spam; on replay, its new blocking tool stopped the reported cases, though this does not establish real-world effectiveness.",
       "url": "https://www.anthropic.com/news/investigating-unintended-model-actions",
       "type": "Incident report",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     },
     {
       "id": "boozallen-ot-agent-tests-20261008",
@@ -197,7 +211,7 @@
       "summary": "Booz Allen says models completed objectives in eight controlled OT scenarios, including moving a robotic arm. Tests ran in the company’s isolated lab and humans approved every exploit and physical action; no operating facility was affected.",
       "url": "https://www.boozallen.com/insights/cyber/frontier-si-reaches-ot-systems.html",
       "type": "Research evaluation",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     },
     {
       "id": "whitehouse-incident-reporting-mandate-20261009",
@@ -207,17 +221,7 @@
       "summary": "After Anthropic disclosed unintended actions on government systems, White House officials said AI companies must report and remediate incidents. Public enforcement details remain unclear.",
       "url": "https://www.axios.com/2026/10/09/anthropic-ai-security-white-house",
       "type": "Reporting",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
-    },
-    {
-      "id": "anthropic-self-replicating-ai-20261012",
-      "publisher": "Anthropic",
-      "date": "2026-10-12",
-      "title": "Lab agent completed a simplified replication chain",
-      "summary": "Anthropic reports GLM-5.2 completed an eight-node emulator replication chain through a deliberately exposed ADB port. A 9B model ran on several device types but did not complete the chain; no real-world spread was shown.",
-      "url": "https://www.anthropic.com/research/self-replicating-ai",
-      "type": "Research",
-      "checkedAt": "2026-10-19T15:01:06.487Z"
+      "checkedAt": "2026-10-20T14:55:08.299Z"
     }
   ],
   "excluded": [
