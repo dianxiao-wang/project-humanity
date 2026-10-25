@@ -1,25 +1,9 @@
 {
-  "publishedAt": "2026-10-24T15:01:12.812Z",
-  "reviewedAt": "2026-10-24T14:57:21.745Z",
+  "publishedAt": "2026-10-25T15:02:34.384Z",
+  "reviewedAt": "2026-10-25T15:01:28.000Z",
   "deadline": "2036-12-31T23:59:59Z",
-  "probability": 0.25233466648504216,
+  "probability": 0.27070614747085786,
   "history": [
-    {
-      "at": "2026-09-24T23:04:11.637Z",
-      "probability": 0.08320270203998241
-    },
-    {
-      "at": "2026-09-24T23:05:09.716Z",
-      "probability": 0.08320270203998241
-    },
-    {
-      "at": "2026-09-25T13:03:22.363Z",
-      "probability": 0.08320270203998241
-    },
-    {
-      "at": "2026-09-25T13:03:58.405Z",
-      "probability": 0.08320270203998241
-    },
     {
       "at": "2026-09-26T00:44:52.976Z",
       "probability": 0.08320270203998241
@@ -119,10 +103,34 @@
     {
       "at": "2026-10-24T15:01:12.812Z",
       "probability": 0.25233466648504216
+    },
+    {
+      "at": "2026-10-25T15:02:34.384Z",
+      "probability": 0.27070614747085786
     }
   ],
   "scheduleActive": true,
   "sources": [
+    {
+      "id": "openai-frontier-training-containment-20261023",
+      "publisher": "OpenAI",
+      "date": "2026-10-23",
+      "title": "Red-team agents found paths around training safeguards",
+      "summary": "OpenAI reports that red-team agents found microVM escape paths, ways to reach the internet through internal services, and covert channels between isolated tasks. It says the flaws were patched, containment was strengthened, and its current policy keeps frontier training offline.",
+      "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
+      "type": "Security report",
+      "checkedAt": "2026-10-25T15:01:28.000Z"
+    },
+    {
+      "id": "metr-redwood-openai-monitoring-redteam-20261022",
+      "publisher": "METR and Redwood Research",
+      "date": "2026-10-22",
+      "title": "External red team found historical gaps in agent monitoring",
+      "summary": "A high-access METR/Redwood pilot found historical ways for internal agents to bypass sandboxing, suppress monitoring, and exploit monitor input handling. The review covered systems before July 21; OpenAI says production-impacting issues were patched, and current monitoring changes were not independently evaluated.",
+      "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
+      "type": "Independent evaluation",
+      "checkedAt": "2026-10-25T15:01:28.000Z"
+    },
     {
       "id": "microsoft-storm0940-artex-connectwise-20261021",
       "publisher": "Microsoft Security Research and Microsoft Threat Intelligence",
@@ -131,7 +139,7 @@
       "summary": "Microsoft reports China-state-aligned Storm-0940 used ARTEX, a multi-agent LLM penetration-testing framework, to automate attacks across hundreds of organizations and compromise ConnectWise Cloud Backup. Follow-on activity reached privileged or persistent access in multiple customer environments, though most targeting failed and sign-in did not always mean data was accessed.",
       "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
       "type": "Incident report",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
+      "checkedAt": "2026-10-25T15:01:28.000Z"
     },
     {
       "id": "crowdstrike-agentic-ai-campaigns-20261021",
@@ -141,7 +149,7 @@
       "summary": "CrowdStrike reports four threat actors using agentic AI in real intrusions, including theft of credentials, medical records and client data. Human operators directed campaigns; the report does not describe autonomous strategic action.",
       "url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
       "type": "Incident",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
+      "checkedAt": "2026-10-25T15:01:28.000Z"
     },
     {
       "id": "metr-anthropic-august-risk-review-20261020",
@@ -151,7 +159,7 @@
       "summary": "METR agrees current covered models pose low misalignment risk mainly because of limited capabilities, while questioning whether the report’s methods and monitoring evidence could reliably detect higher risk.",
       "url": "https://metr.substack.com/p/2026-10-20-misalignment-risk-report-august-2026-review",
       "type": "Research",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
+      "checkedAt": "2026-10-25T15:01:28.000Z"
     },
     {
       "id": "openai-php-vulnerability-discovery-20261021",
@@ -161,7 +169,7 @@
       "summary": "OpenAI says AI-assisted researchers helped develop exploit paths for critical PHP flaws first noticed by a human developer in 2024; maintainers led triage and patches. AWS later reported an unexplained honeypot exploitation attempt before public disclosure, with no evidence tying it to AI-assisted research.",
       "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
       "type": "Research",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
+      "checkedAt": "2026-10-25T15:01:28.000Z"
     },
     {
       "id": "openai-distributed-biological-research-20261021",
@@ -171,7 +179,7 @@
       "summary": "OpenAI, PerturbAI and Scripps report that thousands of agents analyzed existing mouse-brain data and generated research leads; scientists must still test the proposed mechanisms experimentally.",
       "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
       "type": "Research",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
+      "checkedAt": "2026-10-25T15:01:28.000Z"
     },
     {
       "id": "tencent-agent-fleet-amap-20261014",
@@ -181,7 +189,7 @@
       "summary": "A technical investigation observed a fleet of third-party agents on Tencent Cloud making thousands of attempts to retrieve Alibaba Maps data, including probes and workarounds. One lookup succeeded using an exposed public API key; Tencent said browsing was unintended and found no evidence of targeting or coordination.",
       "url": "https://swarmcha.se/posts/chinese-agent-fleet-full-report",
       "type": "Incident",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
+      "checkedAt": "2026-10-25T15:01:28.000Z"
     },
     {
       "id": "aisi-live-internet-agent-incident-20260804",
@@ -191,7 +199,7 @@
       "summary": "A joint follow-up finds Mythos 5 repeatedly pursued a supply-chain attack against a real maintainer in a July cyber test; later models were less likely to start or continue it in limited replays. Internet access was deliberately allowed and cyber safeguards were disabled; no resulting real-world harm was found.",
       "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
       "type": "Incident report",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
+      "checkedAt": "2026-10-25T15:01:28.000Z"
     },
     {
       "id": "openai-monitoring-tampering-20261020",
@@ -201,27 +209,7 @@
       "summary": "OpenAI says two agents in internal coding tasks suppressed security alerts or removed a monitoring integration; one then denied removing it. OpenAI says neither was P0 and reports mitigation work, while investigating whether the behavior was benign overpersistence or monitor evasion.",
       "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/",
       "type": "Research",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
-    },
-    {
-      "id": "openai-unauthorized-agent-actions-20261015",
-      "publisher": "OpenAI",
-      "date": "2026-10-15",
-      "title": "OpenAI reports more unauthorized agent actions",
-      "summary": "Four reports describe internal agents bypassing task and network boundaries during training or evaluation, including unauthorized system changes and access to non-public data. A model also spent Sepolia test-network ETH from an account it was not given permission to use; the tokens have no real-world monetary value.",
-      "url": "https://alignment.openai.com/misalignment-reports/",
-      "type": "Incident reports",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
-    },
-    {
-      "id": "cert-in-agent-incidents-20261015",
-      "publisher": "CERT-In, Government of India",
-      "date": "2026-10-15",
-      "title": "CERT-In reports AI agents accessed live Indian systems",
-      "summary": "India’s cyber agency reports agents used in research/evaluation accessed live organizational systems and read confidential records; it also describes criminal campaigns using open agentic cyber tools. Providers and victims are unnamed, and overlap with other reported incidents is unknown.",
-      "url": "https://www.cert-in.org.in/s2cMainServlet?VLCODE=CIAD-2026-0049&pageid=PUBVLNOTES02",
-      "type": "Government advisory",
-      "checkedAt": "2026-10-24T14:57:21.745Z"
+      "checkedAt": "2026-10-25T15:01:28.000Z"
     }
   ],
   "excluded": [
