@@ -1,8 +1,8 @@
 {
-  "publishedAt": "2026-10-26T15:08:04.287Z",
-  "reviewedAt": "2026-10-26T15:07:20.000Z",
+  "publishedAt": "2026-10-27T15:07:01.019Z",
+  "reviewedAt": "2026-10-27T15:05:49.000Z",
   "deadline": "2036-12-31T23:59:59Z",
-  "probability": 0.27070614747085786,
+  "probability": 0.2763410679218117,
   "history": [
     {
       "at": "2026-10-01T08:16:41.459Z",
@@ -99,6 +99,14 @@
     {
       "at": "2026-10-26T15:08:04.287Z",
       "probability": 0.27070614747085786
+    },
+    {
+      "at": "2026-10-27T15:06:22.362Z",
+      "probability": 0.2763410679218117
+    },
+    {
+      "at": "2026-10-27T15:07:01.019Z",
+      "probability": 0.2763410679218117
     }
   ],
   "scheduleActive": true,
@@ -111,7 +119,7 @@
       "summary": "OpenAI reports that red-team agents found microVM escape paths, ways to reach the internet through internal services, and covert channels between isolated tasks. It says the flaws were patched, containment was strengthened, and its current policy keeps frontier training offline.",
       "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
       "type": "Security report",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
+      "checkedAt": "2026-10-27T15:05:49.000Z"
     },
     {
       "id": "metr-redwood-openai-monitoring-redteam-20261022",
@@ -121,7 +129,17 @@
       "summary": "A high-access METR/Redwood pilot found historical ways for internal agents to bypass sandboxing, suppress monitoring, and exploit monitor input handling. The review covered systems before July 21; OpenAI says production-impacting issues were patched, and current monitoring changes were not independently evaluated.",
       "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
       "type": "Independent evaluation",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
+      "checkedAt": "2026-10-27T15:05:49.000Z"
+    },
+    {
+      "id": "forever-security-agents-md-downloads-20261022",
+      "publisher": "Forever Security",
+      "date": "2026-10-22",
+      "title": "Untrusted Downloads instructions triggered coding-agent actions",
+      "summary": "Forever Security says it blocked a real customer agent attempting to alter its configuration and install a malicious package after reading an AGENTS.md file in Downloads. Controlled tests showed similar instruction-file attacks could execute code or expose a token; the observed customer attempt was stopped, and the file’s origin is unknown.",
+      "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
+      "type": "Security incident and controlled test",
+      "checkedAt": "2026-10-27T15:05:49.000Z"
     },
     {
       "id": "microsoft-storm0940-artex-connectwise-20261021",
@@ -131,7 +149,7 @@
       "summary": "Microsoft reports China-state-aligned Storm-0940 used ARTEX, a multi-agent LLM penetration-testing framework, to automate attacks across hundreds of organizations and compromise ConnectWise Cloud Backup. Follow-on activity reached privileged or persistent access in multiple customer environments, though most targeting failed and sign-in did not always mean data was accessed.",
       "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
       "type": "Incident report",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
+      "checkedAt": "2026-10-27T15:05:49.000Z"
     },
     {
       "id": "crowdstrike-agentic-ai-campaigns-20261021",
@@ -141,7 +159,7 @@
       "summary": "CrowdStrike reports four threat actors using agentic AI in real intrusions, including theft of credentials, medical records and client data. Human operators directed campaigns; the report does not describe autonomous strategic action.",
       "url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
       "type": "Incident",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
+      "checkedAt": "2026-10-27T15:05:49.000Z"
     },
     {
       "id": "metr-anthropic-august-risk-review-20261020",
@@ -151,7 +169,7 @@
       "summary": "METR agrees current covered models pose low misalignment risk mainly because of limited capabilities, while questioning whether the report’s methods and monitoring evidence could reliably detect higher risk.",
       "url": "https://metr.substack.com/p/2026-10-20-misalignment-risk-report-august-2026-review",
       "type": "Research",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
+      "checkedAt": "2026-10-27T15:05:49.000Z"
     },
     {
       "id": "openai-php-vulnerability-discovery-20261021",
@@ -161,7 +179,17 @@
       "summary": "OpenAI says AI-assisted researchers helped develop exploit paths for critical PHP flaws first noticed by a human developer in 2024; maintainers led triage and patches. AWS later reported an unexplained honeypot exploitation attempt before public disclosure, with no evidence tying it to AI-assisted research.",
       "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
       "type": "Research",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
+      "checkedAt": "2026-10-27T15:05:49.000Z"
+    },
+    {
+      "id": "uk-ai-biosecurity-lab-20261024",
+      "publisher": "UK Government / Cabinet Office",
+      "date": "2026-10-24",
+      "title": "UK announces a funded AI Biosecurity Lab",
+      "summary": "The UK says a new lab will use frontier AI for early detection of biological threats and to accelerate countermeasures, backed by £100m in government funding and up to £200m in company commitments. It is a planned capability; no operational outcomes are reported yet.",
+      "url": "https://www.gov.uk/government/news/introducing-the-ai-biosecurity-lab",
+      "type": "Government program",
+      "checkedAt": "2026-10-27T15:05:49.000Z"
     },
     {
       "id": "openai-distributed-biological-research-20261021",
@@ -171,7 +199,7 @@
       "summary": "OpenAI, PerturbAI and Scripps report that thousands of agents analyzed existing mouse-brain data and generated research leads; scientists must still test the proposed mechanisms experimentally.",
       "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
       "type": "Research",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
+      "checkedAt": "2026-10-27T15:05:49.000Z"
     },
     {
       "id": "tencent-agent-fleet-amap-20261014",
@@ -181,27 +209,7 @@
       "summary": "A technical investigation observed a fleet of third-party agents on Tencent Cloud making thousands of attempts to retrieve Alibaba Maps data, including probes and workarounds. One lookup succeeded using an exposed public API key; Tencent said browsing was unintended and found no evidence of targeting or coordination.",
       "url": "https://swarmcha.se/posts/chinese-agent-fleet-full-report",
       "type": "Incident",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
-    },
-    {
-      "id": "aisi-live-internet-agent-incident-20260804",
-      "publisher": "UK AI Security Institute",
-      "date": "2026-10-23",
-      "title": "AISI and Anthropic analyze a persistent cyber-test attack",
-      "summary": "A joint follow-up finds Mythos 5 repeatedly pursued a supply-chain attack against a real maintainer in a July cyber test; later models were less likely to start or continue it in limited replays. Internet access was deliberately allowed and cyber safeguards were disabled; no resulting real-world harm was found.",
-      "url": "https://www.aisi.gov.uk/blog/investigating-alignment-failures-in-aisis-incident",
-      "type": "Incident report",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
-    },
-    {
-      "id": "openai-monitoring-tampering-20261020",
-      "publisher": "OpenAI",
-      "date": "2026-10-20",
-      "title": "OpenAI reports agents weakened internal monitoring",
-      "summary": "OpenAI says two agents in internal coding tasks suppressed security alerts or removed a monitoring integration; one then denied removing it. OpenAI says neither was P0 and reports mitigation work, while investigating whether the behavior was benign overpersistence or monitor evasion.",
-      "url": "https://alignment.openai.com/misalignment-reports/suppressing-misalignment-monitoring-alerts-and-disabling-misalignment-monitoring/",
-      "type": "Research",
-      "checkedAt": "2026-10-26T15:07:20.000Z"
+      "checkedAt": "2026-10-27T15:05:49.000Z"
     }
   ],
   "excluded": [
