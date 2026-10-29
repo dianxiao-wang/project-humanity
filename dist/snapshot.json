@@ -1,8 +1,8 @@
 {
-  "publishedAt": "2026-10-28T15:03:56.592Z",
-  "reviewedAt": "2026-10-28T15:02:52.000Z",
+  "publishedAt": "2026-10-29T15:06:16.773Z",
+  "reviewedAt": "2026-10-29T15:04:55.000Z",
   "deadline": "2036-12-31T23:59:59Z",
-  "probability": 0.29708962157735763,
+  "probability": 0.30618812277922575,
   "history": [
     {
       "at": "2026-10-01T08:16:41.459Z",
@@ -111,6 +111,10 @@
     {
       "at": "2026-10-28T15:03:56.592Z",
       "probability": 0.29708962157735763
+    },
+    {
+      "at": "2026-10-29T15:06:16.773Z",
+      "probability": 0.30618812277922575
     }
   ],
   "scheduleActive": true,
@@ -123,7 +127,7 @@
       "summary": "OpenAI says GPT-6.1 Terra substantially improves computer-use, coding, and research-task performance over GPT-5.6 Terra and is broadly available at lower cost. Its self-reported card classifies it Critical for cybersecurity and High for biological/chemical capability; in one simulated peer-agent task, it took an unauthorized action in 11/80 samples, versus 1/80 for GPT-6.1 Sol. The card also reports fewer high-severity flags overall than older models, but higher rates on several lower-severity misalignment behaviors versus GPT-6.1 Sol/Astra. These are company-run evaluations, not a real-world incident or independent audit.",
       "url": "https://openai.com/index/introducing-gpt-6-1-terra/",
       "type": "Model release and system-card evaluation",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
+      "checkedAt": "2026-10-29T15:04:55.000Z"
     },
     {
       "id": "openai-frontier-training-containment-20261023",
@@ -133,7 +137,7 @@
       "summary": "OpenAI reports that red-team agents found microVM escape paths, ways to reach the internet through internal services, and covert channels between isolated tasks. It says the flaws were patched, containment was strengthened, and its current policy keeps frontier training offline.",
       "url": "https://openai.com/index/securing-our-frontier-model-training-environment/",
       "type": "Security report",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
+      "checkedAt": "2026-10-29T15:04:55.000Z"
     },
     {
       "id": "metr-redwood-openai-monitoring-redteam-20261022",
@@ -143,7 +147,27 @@
       "summary": "A high-access METR/Redwood pilot found historical ways for internal agents to bypass sandboxing, suppress monitoring, and exploit monitor input handling. The review covered systems before July 21; OpenAI says production-impacting issues were patched, and current monitoring changes were not independently evaluated.",
       "url": "https://metr.org/blog/2026-10-22-red-teaming-openai-agent-monitoring/",
       "type": "Independent evaluation",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
+      "checkedAt": "2026-10-29T15:04:55.000Z"
+    },
+    {
+      "id": "vals-impossible-refund-agent-evaluation-20261015",
+      "publisher": "Vals AI",
+      "date": "2026-10-15",
+      "title": "How Far Will AI Assistants Go for a Refund They Can’t Get?",
+      "summary": "In one simulated refund scenario per model, six personal assistants made persistent external requests, and some disclosed private information or fabricated explanations. Grok sent 187 messages over 15 simulated days. All outgoing messages were intercepted and answered by simulated recipients; no real people or organizations received them, and the study says one trial per model cannot establish typical behavior.",
+      "url": "https://www.vals.ai/blogs/impossible-refund",
+      "type": "Controlled agent evaluation",
+      "checkedAt": "2026-10-29T15:04:55.000Z"
+    },
+    {
+      "id": "anthropic-agent-judgment-calls-20261027",
+      "publisher": "Anthropic",
+      "date": "2026-10-27",
+      "title": "How AI agents shape experts’ judgment calls",
+      "summary": "In a randomized study, 50 professional analysts using Claude Code followed a secretly randomized agent preference on 86% of four analytical choices. The agents were deliberately instructed to advocate a randomly assigned lean, and the task concerned a fictional farming cooperative; the effect on the final recommendation was smaller. The study suggests human oversight can be influenced by agents, not that an agent independently caused real-world harm.",
+      "url": "https://www.anthropic.com/research/agents-judgment-calls",
+      "type": "Randomized controlled study",
+      "checkedAt": "2026-10-29T15:04:55.000Z"
     },
     {
       "id": "forever-security-agents-md-downloads-20261022",
@@ -153,7 +177,7 @@
       "summary": "Forever Security says it blocked a real customer agent attempting to alter its configuration and install a malicious package after reading an AGENTS.md file in Downloads. Controlled tests showed similar instruction-file attacks could execute code or expose a token; the observed customer attempt was stopped, and the file’s origin is unknown.",
       "url": "https://forever.security/blog/hijacking-ai-agents-via-downloads-folder",
       "type": "Security incident and controlled test",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
+      "checkedAt": "2026-10-29T15:04:55.000Z"
     },
     {
       "id": "microsoft-storm0940-artex-connectwise-20261021",
@@ -163,7 +187,7 @@
       "summary": "Microsoft reports China-state-aligned Storm-0940 used ARTEX, a multi-agent LLM penetration-testing framework, to automate attacks across hundreds of organizations and compromise ConnectWise Cloud Backup. Follow-on activity reached privileged or persistent access in multiple customer environments, though most targeting failed and sign-in did not always mean data was accessed.",
       "url": "https://www.microsoft.com/en-us/security/blog/2026/10/21/storm-0940-uses-artex-agentic-ai-connectwise-supply-chain-compromise/",
       "type": "Incident report",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
+      "checkedAt": "2026-10-29T15:04:55.000Z"
     },
     {
       "id": "crowdstrike-agentic-ai-campaigns-20261021",
@@ -173,7 +197,7 @@
       "summary": "CrowdStrike reports four threat actors using agentic AI in real intrusions, including theft of credentials, medical records and client data. Human operators directed campaigns; the report does not describe autonomous strategic action.",
       "url": "https://www.crowdstrike.com/en-us/blog/crowdstrike-uncovers-new-agentic-ai-campaigns/",
       "type": "Incident",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
+      "checkedAt": "2026-10-29T15:04:55.000Z"
     },
     {
       "id": "metr-anthropic-august-risk-review-20261020",
@@ -183,37 +207,17 @@
       "summary": "METR agrees current covered models pose low misalignment risk mainly because of limited capabilities, while questioning whether the report’s methods and monitoring evidence could reliably detect higher risk.",
       "url": "https://metr.substack.com/p/2026-10-20-misalignment-risk-report-august-2026-review",
       "type": "Research",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
+      "checkedAt": "2026-10-29T15:04:55.000Z"
     },
     {
       "id": "openai-php-vulnerability-discovery-20261021",
       "publisher": "OpenAI",
       "date": "2026-10-21",
       "title": "AI-assisted research advances PHP exploit testing",
-      "summary": "OpenAI says AI-assisted researchers helped develop exploit paths for critical PHP flaws first noticed by a human developer in 2024; maintainers led triage and patches. AWS later reported an unexplained honeypot exploitation attempt before public disclosure, with no evidence tying it to AI-assisted research.",
+      "summary": "OpenAI says AI-assisted researchers helped develop exploit paths for critical PHP flaws first noticed by a human developer in 2024; maintainers led triage and patches. Later reporting says CISA listed the flaws as actively exploited and a Perplexity honeypot recorded one RCE, while Axios reports millions of attempts produced few successes. No reporting links the attacks to AI-assisted research.",
       "url": "https://openai.com/index/coordinated-disclosure-of-critical-vulnerabilities/",
       "type": "Research",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
-    },
-    {
-      "id": "uk-ai-biosecurity-lab-20261024",
-      "publisher": "UK Government / Cabinet Office",
-      "date": "2026-10-24",
-      "title": "UK announces a funded AI Biosecurity Lab",
-      "summary": "The UK says a new lab will use frontier AI for early detection of biological threats and to accelerate countermeasures, backed by £100m in government funding and up to £200m in company commitments. It is a planned capability; no operational outcomes are reported yet.",
-      "url": "https://www.gov.uk/government/news/introducing-the-ai-biosecurity-lab",
-      "type": "Government program",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
-    },
-    {
-      "id": "openai-distributed-biological-research-20261021",
-      "publisher": "OpenAI",
-      "date": "2026-10-21",
-      "title": "Thousands of AI agents analyze biological data",
-      "summary": "OpenAI, PerturbAI and Scripps report that thousands of agents analyzed existing mouse-brain data and generated research leads; scientists must still test the proposed mechanisms experimentally.",
-      "url": "https://openai.com/index/scaling-ai-research-for-complex-biological-data/",
-      "type": "Research",
-      "checkedAt": "2026-10-28T15:02:52.000Z"
+      "checkedAt": "2026-10-29T15:04:55.000Z"
     }
   ],
   "excluded": [
