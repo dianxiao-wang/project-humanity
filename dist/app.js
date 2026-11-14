@@ -1,5 +1,5 @@
 const $=id=>document.getElementById(id);
-const pacificTimeZone='America/Los_Angeles';
+const pacificTimeZone='America/Vancouver';
 const pacificDate=(value,options={})=>new Intl.DateTimeFormat('en-US',{timeZone:pacificTimeZone,month:'short',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false,...options}).format(new Date(value));
 const pacificParts=value=>Object.fromEntries(new Intl.DateTimeFormat('en-US',{timeZone:pacificTimeZone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(new Date(value)).filter(part=>part.type!=='literal').map(part=>[part.type,Number(part.value)]));
 function pacificInstant(year,month,day,hour){
