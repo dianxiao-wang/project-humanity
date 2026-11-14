@@ -1,11 +1,107 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b0e0c"><meta name="description" content="An AI extinction forecast for entertainment, looking ahead to 2036 with a reviewed news and research feed."><title>Project Humanity — 2036</title><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%223%22%20fill%3D%22%230b0e0c%22%2F%3E%3Cpath%20d%3D%22M4%206h4v8h8V6h4v20h-4v-8H8v8H4Z%20M24%2022h6v4h-6Z%22%20fill%3D%22%23d6ff62%22%2F%3E%3C%2Fsvg%3E"><link rel="stylesheet" href="/style.css"><script src="/app.js" defer></script></head>
-<body><div class="shell"><header><a class="brand" href="/" aria-label="Project Humanity home"><svg class="mark" viewBox="0 0 48 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M1 4h6v13h14V4h6v32h-6V23H7v13H1Z" fill="currentColor"/><path class="mark-cursor" d="M34 30h13v6H34Z" fill="currentColor"/></svg><span>PROJECT<br>HUMANITY</span></a><div class="top-meta"><span>INDEPENDENT OBSERVATORY</span><span class="edition">EARTH / VOL. 001</span></div><a class="feed-link" href="#evidence">READ THE SIGNALS <span>↗</span></a></header>
-<main><div class="section-line"><span><span class="live-dot"></span> HUMANITY STATUS: STILL HERE</span><span id="clock">PACIFIC TIME</span></div>
-<section class="hero" aria-labelledby="question"><div class="forecast"><div class="eyebrow">THE 2036 QUESTION</div><h1 id="question">Will we make it<br>to the other side<span class="acid">?</span></h1><p class="lede">Estimated chance of AI causing human extinction<br class="desktop-break"> by the end of 2036.</p><div class="probability" aria-live="polite"><span id="probability">—</span><span class="percent">%</span><span class="prob-label">EXTINCTION<br>ESTIMATE</span></div><div class="risk-scale" aria-hidden="true"><div id="risk-fill"></div></div><div class="scale-labels"><span>0 / NO EXTINCTION</span><span>100 / EXTINCTION</span></div><div class="forecast-foot"><span class="tag">SPECULATIVE FORECAST</span><span>For entertainment. Not scientific consensus.</span></div></div>
-<aside class="horizon"><div class="panel-top"><span>TERMINAL / 2036</span><span class="acid">[ H ]</span></div><div class="orbital"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div><div class="cross cross-h"></div><div class="cross cross-v"></div><div class="core"><span>TIME UNTIL HORIZON</span><div class="countdown" role="timer" aria-label="Time remaining until the end of 2036"><strong id="count-days">—</strong><span class="days-label">DAYS</span><div class="time-units"><div><strong id="count-hours">00</strong><span>HOURS</span></div><b aria-hidden="true">:</b><div><strong id="count-minutes">00</strong><span>MINUTES</span></div><b aria-hidden="true">:</b><div><strong id="count-seconds">00</strong><span>SECONDS</span></div></div></div></div><span class="coordinate coord-a">+ 49.28 N</span><span class="coordinate coord-b">− 123.12 W</span></div><div class="horizon-bottom"><span>FUTURE UNRESOLVED</span><strong>2036</strong><span>31 DEC / 23:59:59 UTC</span></div></aside></section>
-<section class="status-strip" aria-label="Publication status"><div><span class="micro">LATEST ESTIMATE</span><strong id="published">Loading snapshot…</strong></div><div><span class="micro">SOURCE REVIEW</span><strong id="reviewed">Checking timestamp…</strong></div><div><span class="micro">DAILY UPDATE · PACIFIC TIME</span><strong>08:00</strong></div><div><span class="micro" id="next-label">NEXT SCHEDULED START</span><strong id="next">—</strong></div></section>
-<section class="history-section" aria-labelledby="history-title"><div class="history-heading"><div><div class="eyebrow">ESTIMATE TRACE</div><h2 id="history-title">Probability over time<span class="acid">.</span></h2></div><div class="history-controls" role="group" aria-label="Chart time range"><button type="button" class="range-button active" data-days="7" aria-pressed="true">7 DAYS</button><button type="button" class="range-button" data-days="30" aria-pressed="false">30 DAYS</button></div></div><div class="history-readout"><div><span class="micro">VISIBLE RANGE</span><strong id="history-range">—</strong></div><div><span class="micro">NET CHANGE</span><strong id="history-change">—</strong></div><div><span class="micro">RECORDED ESTIMATES</span><strong id="history-points">—</strong></div></div><div class="chart-frame"><svg id="history-chart" viewBox="0 0 1000 340" role="img" aria-labelledby="history-title history-summary"></svg><div id="chart-tooltip" class="chart-tooltip" hidden></div></div><p id="history-summary" class="sr-only">Historical probability chart is loading.</p></section>
-<section class="evidence-section" id="evidence"><div class="evidence-main"><div class="section-heading"><div><div class="eyebrow">THE INPUT, WITHOUT THE NOISE</div><h2>Signals from the frontier<span class="acid">.</span></h2></div><span class="count" id="count">— SOURCES</span></div><p class="section-intro">The 10 most relevant sources used in this estimate, selected for their connection to AI capabilities, control, and safeguards. Open any source to read it in full.</p><div id="sources" class="sources"><p>Loading sources…</p></div><noscript><p>Enable JavaScript to load the estimate and its source feed.</p></noscript><details id="excluded-section" hidden><summary>Excluded sources <span id="excluded-count"></span></summary><div id="excluded"></div></details></div>
-</section>
-</main><footer><span>PROJECT HUMANITY <span class="acid">© 2026</span></span><span>NO ORACLES. JUST SIGNALS.</span><a href="#question">BACK TO THE QUESTION ↑</a></footer></div></body></html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#111210" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfcfa" media="(prefers-color-scheme: light)">
+<meta name="description" content="An AI extinction forecast for entertainment, looking ahead to 2036, with a reviewed feed of news and research.">
+<title>Project Humanity — 2036</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23111210%22%2F%3E%3Cpath%20d%3D%22M7%208h3.5v6.5h7V8H21v16h-3.5v-6h-7v6H7Z%22%20fill%3D%22%23eceeec%22%2F%3E%3Crect%20x%3D%2223%22%20y%3D%2220.5%22%20width%3D%223.5%22%20height%3D%223.5%22%20fill%3D%22%23c5f05e%22%2F%3E%3C%2Fsvg%3E">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header wrap">
+  <a class="brand" href="/" aria-label="Project Humanity home">
+    <svg class="mark" viewBox="0 0 24 20" aria-hidden="true" focusable="false"><path d="M0 2h3.5v6.5h7V2H14v16h-3.5v-6h-7v6H0Z" fill="currentColor"/><rect class="mark-dot" x="16.5" y="14.5" width="3.5" height="3.5"/></svg>
+    <span>Project Humanity</span>
+  </a>
+  <p class="status"><span class="live-dot" aria-hidden="true"></span>Humanity: still here <span class="status-clock" id="clock"></span></p>
+  <nav class="nav" aria-label="Sections"><a href="#trend">Trend</a><a href="#evidence">Sources</a></nav>
+</header>
+
+<main id="main" class="wrap">
+  <section class="hero" aria-labelledby="question">
+    <div class="hero-copy">
+      <p class="kicker">The 2036 question</p>
+      <h1 id="question">Will we make it to the other side?</h1>
+      <div class="estimate" aria-live="polite">
+        <p class="estimate-value"><span id="probability">—</span><span class="estimate-unit">%</span></p>
+        <p id="change" class="change" hidden></p>
+      </div>
+      <p class="lede">Estimated chance that AI causes human extinction by the end of 2036<span id="odds"></span>.</p>
+      <p class="disclaimer">Speculative forecast for entertainment. Not scientific consensus.</p>
+    </div>
+    <figure class="odds-figure">
+      <div id="odds-grid" class="odds-grid" role="img" aria-label="Probability shown as squares out of 100"></div>
+      <figcaption><span class="key key-filled" aria-hidden="true"></span><span id="odds-caption">Each square is 1 in 100</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="countdown-band" aria-labelledby="countdown-title">
+    <h2 id="countdown-title" class="label">Time until the horizon</h2>
+    <div class="countdown" role="timer" aria-label="Time remaining until the end of 2036">
+      <p class="count-days"><strong id="count-days">—</strong> <span>days</span></p>
+      <p class="count-clock"><span><strong id="count-hours">00</strong><small>h</small></span><span><strong id="count-minutes">00</strong><small>m</small></span><span><strong id="count-seconds">00</strong><small>s</small></span></p>
+    </div>
+    <p class="countdown-target">until 31 Dec 2036, 23:59:59 UTC</p>
+  </section>
+
+  <dl class="meta" aria-label="Publication status">
+    <div><dt>Last estimate</dt><dd id="published">Loading…</dd></div>
+    <div><dt>Sources reviewed</dt><dd id="reviewed">Loading…</dd></div>
+    <div><dt id="next-label">Next update</dt><dd id="next">—</dd></div>
+  </dl>
+
+  <section class="trend" id="trend" aria-labelledby="history-title">
+    <div class="section-head">
+      <div>
+        <h2 id="history-title">How the estimate has moved</h2>
+        <p class="section-intro">Updated daily at 08:00 Pacific time as news about AI capabilities, incidents, regulation and safeguards comes in.</p>
+      </div>
+      <div class="segmented" role="group" aria-label="Chart time range">
+        <button type="button" class="range-button active" data-days="7" aria-pressed="true">7 days</button>
+        <button type="button" class="range-button" data-days="30" aria-pressed="false">30 days</button>
+      </div>
+    </div>
+    <dl class="readout">
+      <div><dt>Change</dt><dd id="history-change">—</dd></div>
+      <div><dt>Low</dt><dd id="history-low">—</dd></div>
+      <div><dt>High</dt><dd id="history-high">—</dd></div>
+    </dl>
+    <div class="chart-frame">
+      <svg id="history-chart" viewBox="0 0 1000 320" role="img" aria-labelledby="history-title history-summary"></svg>
+      <div id="chart-tooltip" class="chart-tooltip" hidden></div>
+    </div>
+    <p id="history-summary" class="sr-only">Historical probability chart is loading.</p>
+  </section>
+
+  <section class="evidence" id="evidence" aria-labelledby="evidence-title">
+    <div class="evidence-head">
+      <h2 id="evidence-title">Signals from the frontier</h2>
+      <p class="section-intro">The most relevant sources behind the current estimate: AI capabilities, control and safeguards. Each one is re-checked before it is shown.</p>
+      <p class="count" id="count"></p>
+    </div>
+    <div class="evidence-list">
+      <div id="sources" class="sources"><p class="muted">Loading sources…</p></div>
+      <noscript><p>Turn on JavaScript to load the estimate and its sources.</p></noscript>
+      <details id="excluded-section" class="excluded" hidden><summary>Excluded sources <span id="excluded-count"></span></summary><div id="excluded"></div></details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <span>Project Humanity © 2026</span>
+  <span>No oracles. Just signals.</span>
+  <a href="#question">Back to top ↑</a>
+</footer>
+</body>
+</html>
