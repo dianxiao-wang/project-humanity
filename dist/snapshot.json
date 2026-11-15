@@ -1,8 +1,8 @@
 {
-  "publishedAt": "2026-11-14T15:16:56.660Z",
-  "reviewedAt": "2026-11-14T15:16:46.037Z",
+  "publishedAt": "2026-11-15T15:16:27.308Z",
+  "reviewedAt": "2026-11-15T15:16:27.251Z",
   "deadline": "2036-12-31T23:59:59Z",
-  "probability": 0.0809843351395412,
+  "probability": 0.09087099651642132,
   "history": [
     {
       "at": "2026-11-14T04:11:52.538Z",
@@ -11,10 +11,34 @@
     {
       "at": "2026-11-14T15:16:56.660Z",
       "probability": 0.0809843351395412
+    },
+    {
+      "at": "2026-11-15T15:16:27.308Z",
+      "probability": 0.09087099651642132
     }
   ],
   "scheduleActive": true,
   "sources": [
+    {
+      "id": "google-antigravity-teamwork-20261113",
+      "publisher": "Google Research",
+      "date": "2026-11-13",
+      "title": "Google says its multi-agent system autonomously produced a large machine-checked maths formalization",
+      "summary": "Google Research described /teamwork, a multi-agent feature in Antigravity that runs parallel agents against automated checkers over multi-day tasks. Google says it autonomously produced a roughly 1.8-million-line Lean formalization related to the Weil conjectures and helped on several open problems; the results are self-reported and await independent review.",
+      "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/",
+      "type": "Capability release",
+      "checkedAt": "2026-11-15T15:16:27.251Z"
+    },
+    {
+      "id": "cursor-trojanized-claude-code-extension-20261113",
+      "publisher": "BleepingComputer / Cursor",
+      "date": "2026-11-13",
+      "title": "Cursor confirms breach that served a backdoored Claude Code extension to developers",
+      "summary": "Cursor disclosed that attackers used a key stolen via its AI provider Fireworks to read stored coding-agent traces containing credentials, then served tampered copies of Anthropic’s Claude Code extension from Cursor’s marketplace cache for about 11 hours. Up to 5,000 users may have received the build, which tried to install SSH backdoors.",
+      "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension",
+      "type": "Security incident",
+      "checkedAt": "2026-11-15T15:16:27.251Z"
+    },
     {
       "id": "fbi-artex-flash-20261113",
       "publisher": "FBI (IC3)",
@@ -23,7 +47,7 @@
       "summary": "An FBI FLASH alert says multiple threat actors have used the open-source ARTEX agentic penetration-testing framework since August 2026 to automate intrusions across many sectors, in some cases reaching privileged access in under three hours. Named campaigns include theft of personal data on about 67,000 people in South Korea.",
       "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
       "type": "Government security advisory",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
+      "checkedAt": "2026-11-15T15:16:27.251Z"
     },
     {
       "id": "ny-raise-registration-digit-20261110",
@@ -33,7 +57,7 @@
       "summary": "New York opened registration for large frontier AI developers under the RAISE Act, run by a new state office (DIGIT) and backed by a new independent evaluation center. From January 2027 covered labs must publish safety frameworks, report critical safety incidents within 72 hours and file regular risk assessments.",
       "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
       "type": "Regulation / enforcement",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
+      "checkedAt": "2026-11-15T15:16:27.251Z"
     },
     {
       "id": "cloudsek-silent-lynx-hermes-20261111",
@@ -43,7 +67,7 @@
       "summary": "CloudSEK reports that an operator linked to the Silent Lynx group ran a self-hosted Hermes agent on DeepSeek to handle reconnaissance, collection and log cleanup, taking more than 2,000 documents from Tajikistan’s government systems. Reuters reported the findings; the attribution is CloudSEK’s.",
       "url": "https://www.cloudsek.com/blog/off-the-rails-inside-an-exposed-silent-lynx-server",
       "type": "Threat intelligence report",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
+      "checkedAt": "2026-11-15T15:16:27.251Z"
     },
     {
       "id": "anthropic-anvil-automated-redteam-20261112",
@@ -53,7 +77,7 @@
       "summary": "Anthropic says Anvil found more and stronger jailbreaks than human red-teamers across biological, cyber, and model-extraction safeguards, and helped improve classifiers. Tests use internal models and classifier visibility, with safeguards disabled on the attacker model; Anthropic says this privileged setup is not currently available to external attackers.",
       "url": "https://safeguards.anthropic.com/2026/automated-red-teaming/",
       "type": "Primary safety evaluation",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
+      "checkedAt": "2026-11-15T15:16:27.251Z"
     },
     {
       "id": "openai-frontier-misalignment-monitoring-20261029",
@@ -63,7 +87,7 @@
       "summary": "OpenAI describes layered monitoring for internal frontier agents, reporting measured detection performance on real and synthetic incidents and broader coverage of training, evaluation and tool-using systems. The post also says an independent red-team found several monitoring vulnerabilities, most patched but one still in progress; results are company-reported and not an independent audit of deployment outcomes.",
       "url": "https://alignment.openai.com/how-we-detect-frontier-model-misalignment",
       "type": "Safety monitoring and evaluation report",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
+      "checkedAt": "2026-11-15T15:16:27.251Z"
     },
     {
       "id": "openai-cot-monitorability-lifecycle-20261110",
@@ -73,7 +97,7 @@
       "summary": "OpenAI reports that GPT-6 Astra had lower chain-of-thought monitorability and greater monitor-evasion capability in adversarial tests, while research finds no-CoT reasoning and chain-of-thought controllability rise with training. The company says those measures are imperfect proxies; direct tests of a matched model pair did not show greater evasion for the more controllable model, and Astra did not evade full-context monitoring of complex sabotage without guidance.",
       "url": "https://alignment.openai.com/cot-monitorability-model-lifecycle/",
       "type": "Primary safety and monitorability research",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
+      "checkedAt": "2026-11-15T15:16:27.251Z"
     },
     {
       "id": "microsoft-agent-backdoor-supply-chain-20261112",
@@ -83,7 +107,7 @@
       "summary": "Microsoft reports controlled studies where sparse edits to fewer than ten model neurons can install trigger-based agent backdoors, and training-time poisoning can transfer across repositories and agent harnesses. Attacks require checkpoint or training control and consequential tool permissions; provenance, weight scans, restricted tools, and runtime review are defenses.",
       "url": "https://www.microsoft.com/en-us/security/blog/2026/11/12/trained-to-betray-how-post-training-supply-chain-attacks-hijack-coding-agents/",
       "type": "Primary security research",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
+      "checkedAt": "2026-11-15T15:16:27.251Z"
     },
     {
       "id": "acl-nexus-runtime-safety-20261110",
@@ -93,27 +117,7 @@
       "summary": "An ACL conference paper reports a plan-level monitor that can allow, block, request confirmation, or request revision of tool actions. It improves several benchmark results, but tests are mostly synthetic and performance drops on a rule-blind stress set.",
       "url": "https://aclanthology.org/2026.findings-aacl.112.pdf",
       "type": "Peer-reviewed agent safety research",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
-    },
-    {
-      "id": "ibm-granite-llmon-20261112",
-      "publisher": "IBM Granite (Hugging Face)",
-      "date": "2026-11-12",
-      "title": "IBM releases a model trained to separate instructions from untrusted data",
-      "summary": "IBM released a preview Granite model that uses a structured prompt format marking which blocks may be executed, aimed at resisting prompt injection in agents. IBM says the behavior is learned rather than enforced and should not be the only defense.",
-      "url": "https://huggingface.co/ibm-granite/granite-4.1-3b-llmon-preview",
-      "type": "Guardrail research release",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
-    },
-    {
-      "id": "uk-ai-biosecurity-lab-20261024",
-      "publisher": "UK Government / Cabinet Office",
-      "date": "2026-10-24",
-      "title": "UK announces a funded AI Biosecurity Lab",
-      "summary": "The UK says a new lab will use frontier AI for early detection of biological threats and to accelerate countermeasures, backed by £100m in government funding and up to £200m in company commitments. It is a planned capability; no operational outcomes are reported yet.",
-      "url": "https://www.gov.uk/government/news/introducing-the-ai-biosecurity-lab",
-      "type": "Government program",
-      "checkedAt": "2026-11-14T15:16:46.037Z"
+      "checkedAt": "2026-11-15T15:16:27.251Z"
     }
   ],
   "excluded": [
