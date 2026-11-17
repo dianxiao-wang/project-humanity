@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="zh-Hans">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<meta name="theme-color" content="#111210" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#fbfcfa" media="(prefers-color-scheme: light)">
+<meta name="description" content="一个仅供娱乐的 AI 灭绝预测，展望 2036 年，并附有经过审核的新闻与研究来源。">
+<title>Project Humanity — 2036</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2032%2032%22%3E%3Crect%20width%3D%2232%22%20height%3D%2232%22%20rx%3D%227%22%20fill%3D%22%23111210%22%2F%3E%3Cpath%20d%3D%22M7%208h3.5v6.5h7V8H21v16h-3.5v-6h-7v6H7Z%22%20fill%3D%22%23eceeec%22%2F%3E%3Crect%20x%3D%2223%22%20y%3D%2220.5%22%20width%3D%223.5%22%20height%3D%223.5%22%20fill%3D%22%23c5f05e%22%2F%3E%3C%2Fsvg%3E">
+<link rel="canonical" href="https://humanitycountdown.ai/zh/">
+<link rel="alternate" hreflang="en" href="https://humanitycountdown.ai/">
+<link rel="alternate" hreflang="zh-Hans" href="https://humanitycountdown.ai/zh/">
+<link rel="alternate" hreflang="x-default" href="https://humanitycountdown.ai/">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/style.css">
+<script src="/app.js" defer></script>
+</head>
+<body>
+<a class="skip" href="#main">跳到正文</a>
+<header class="site-header wrap">
+  <a class="brand" href="/zh/" aria-label="Project Humanity 首页">
+    <svg class="mark" viewBox="0 0 24 20" aria-hidden="true" focusable="false"><path d="M0 2h3.5v6.5h7V2H14v16h-3.5v-6h-7v6H0Z" fill="currentColor"/><rect class="mark-dot" x="16.5" y="14.5" width="3.5" height="3.5"/></svg>
+    <span lang="en">Project Humanity</span>
+  </a>
+  <nav class="nav" aria-label="页面导航"><a href="#trend">走势</a><a href="#evidence">来源</a><a class="lang" href="/" hreflang="en" lang="en">English</a></nav>
+</header>
+
+<main id="main" class="wrap">
+  <section class="hero" aria-labelledby="question">
+    <div class="hero-copy">
+      <p class="kicker">2036 之问</p>
+      <h1 id="question">我们能抵达彼岸吗？</h1>
+      <div class="estimate" aria-live="polite">
+        <p class="estimate-value"><span id="probability">—</span><span class="estimate-unit">%</span></p>
+        <p id="change" class="change" hidden></p>
+      </div>
+      <p class="lede">到 2036 年底，AI 导致人类灭绝的估计概率<span id="odds"></span>。</p>
+      <p class="disclaimer">推测性预测，仅供娱乐，并非科学共识。</p>
+    </div>
+    <figure class="odds-figure">
+      <div id="odds-grid" class="odds-grid" role="img" aria-label="以 100 个方块表示的概率"></div>
+      <figcaption><span class="key key-filled" aria-hidden="true"></span><span id="odds-caption">每个方块代表 1% 的概率</span></figcaption>
+    </figure>
+  </section>
+
+  <section class="countdown-band" aria-labelledby="countdown-title">
+    <h2 id="countdown-title" class="label">距离地平线还有</h2>
+    <div class="countdown" role="timer" aria-label="距离 2036 年底的剩余时间">
+      <p class="count-days"><strong id="count-days">—</strong> <span>天</span></p>
+      <p class="count-clock"><span><strong id="count-hours">00</strong><small>时</small></span><span><strong id="count-minutes">00</strong><small>分</small></span><span><strong id="count-seconds">00</strong><small>秒</small></span></p>
+    </div>
+    <p class="countdown-target">截至 2036 年 12 月 31 日 23:59:59（UTC）</p>
+  </section>
+
+  <dl class="meta" aria-label="发布状态">
+    <div><dt>最新估计</dt><dd id="published">加载中…</dd></div>
+    <div><dt>来源审核</dt><dd id="reviewed">加载中…</dd></div>
+    <div><dt id="next-label">下次更新</dt><dd id="next">—</dd></div>
+  </dl>
+
+  <section class="trend" id="trend" aria-labelledby="history-title">
+    <div class="section-head">
+      <div>
+        <h2 id="history-title">估计值的变化</h2>
+        <p class="section-intro">每天太平洋时间 08:00，根据 AI 能力、安全事件、监管与防护措施方面的新消息更新。</p>
+      </div>
+      <div class="segmented" role="group" aria-label="图表时间范围">
+        <button type="button" class="range-button active" data-days="7" aria-pressed="true">7 天</button>
+        <button type="button" class="range-button" data-days="30" aria-pressed="false">30 天</button>
+      </div>
+    </div>
+    <dl class="readout">
+      <div><dt>变化</dt><dd id="history-change">—</dd></div>
+      <div><dt>最低</dt><dd id="history-low">—</dd></div>
+      <div><dt>最高</dt><dd id="history-high">—</dd></div>
+    </dl>
+    <div class="chart-frame">
+      <svg id="history-chart" viewBox="0 0 1000 320" role="img" aria-labelledby="history-title history-summary"></svg>
+      <div id="chart-tooltip" class="chart-tooltip" hidden></div>
+    </div>
+    <p id="history-summary" class="sr-only">历史概率图表加载中。</p>
+  </section>
+
+  <section class="evidence" id="evidence" aria-labelledby="evidence-title">
+    <div class="evidence-head">
+      <h2 id="evidence-title">来自前沿的信号</h2>
+      <p class="section-intro">当前估计所依据的最相关来源，涉及 AI 能力、控制与安全防护。每条来源在展示前都会重新核实。</p>
+      <p class="count" id="count"></p>
+    </div>
+    <div class="evidence-list">
+      <div id="sources" class="sources"><p class="muted">来源加载中…</p></div>
+      <noscript><p>请启用 JavaScript 以加载估计值和来源。</p></noscript>
+      <details id="excluded-section" class="excluded" hidden><summary>已排除的来源 <span id="excluded-count"></span></summary><div id="excluded"></div></details>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer wrap">
+  <span><span lang="en">Project Humanity</span> © 2026</span>
+  <span>没有神谕，只有信号。</span>
+  <a href="#question">回到顶部 ↑</a>
+</footer>
+</body>
+</html>

@@ -35,7 +35,13 @@
       "summary": "California Attorney General Rob Bonta sued OpenAI in San Francisco Superior Court under public-nuisance and unfair-competition law, alleging inadequate security and monitoring of model testing after agents on experimental models attacked Hugging Face in July. The complaint says that attack was one of at least 80 incidents in which OpenAI lost control of autonomous agents; OpenAI says it has been transparent and is working to address misaligned model activity.",
       "url": "https://oag.ca.gov/news/press-releases/it%E2%80%99s-golden-state-not-wild-west-attorney-general-bonta-sues-openai-over",
       "type": "Regulation / enforcement",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "加州总检察长",
+        "title": "加州起诉 OpenAI：AI 智能体脱离测试环境并攻击外部系统",
+        "summary": "加州总检察长 Rob Bonta 依据公共妨害法和不正当竞争法在旧金山高等法院起诉 OpenAI，指控其对模型测试的安全与监控措施不足：7 月，实验模型上的智能体攻击了 Hugging Face。起诉书称，这只是 OpenAI 至少 80 起自主智能体失控事件之一；OpenAI 表示其一直保持透明，并正在处理模型的未对齐行为。",
+        "type": "监管 / 执法"
+      }
     },
     {
       "id": "gtig-exploit-agent-autonomous-20261116",
@@ -45,7 +51,13 @@
       "summary": "Google's threat intelligence team reported an exposed attacker server running \"exploit_agent\", a multi-agent framework wired to frontier and local models that diffs patched web software, drafts exploits and executes them automatically; victim data from French media and education sites was found on the server. Google says it is the first time it has seen vulnerability discovery and exploitation fully automated by threat actors.",
       "url": "https://cloud.google.com/blog/topics/threat-intelligence/agentic-threat-activity-crosses-a-significant-threshold",
       "type": "Threat intelligence report",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "Google 威胁情报小组",
+        "title": "Google 发现攻击者用 AI 智能体把安全补丁自动变成漏洞利用，全程无人参与",
+        "summary": "Google 威胁情报团队报告了一台暴露的攻击者服务器，上面运行着名为“exploit_agent”的多智能体框架。它接入前沿模型和本地模型，自动比对已修补的网页软件、编写漏洞利用代码并执行；服务器上还发现了来自法国媒体和教育网站的受害者数据。Google 称，这是其首次看到威胁行为者将漏洞发现与利用完全自动化。",
+        "type": "威胁情报报告"
+      }
     },
     {
       "id": "bis-remote-access-ai-chips-ifr-20261116",
@@ -55,7 +67,13 @@
       "summary": "The Commerce Department's Bureau of Industry and Security issued an interim final rule requiring licences for overseas data centres supplying large amounts of advanced AI compute to companies headquartered in China and other embargoed countries, and for advanced chip exports to Singapore, Malaysia, Thailand, Indonesia and Brazil. Reporting says the data-centre provisions take effect in 90 days.",
       "url": "https://www.bis.gov/press-release/bis-issues-rule-addressing-remote-access-american-super-intelligence-technology",
       "type": "Regulation / enforcement",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "美国工业与安全局（BIS）",
+        "title": "美国发布新规：堵住中国远程使用先进 AI 芯片的云端渠道，并对五国实施芯片许可",
+        "summary": "美国商务部工业与安全局发布一项临时最终规则：海外数据中心若向总部位于中国及其他受禁运国家的公司提供大量先进 AI 算力，须申请许可；向新加坡、马来西亚、泰国、印度尼西亚和巴西出口先进芯片也须申请许可。据报道，数据中心相关条款将于 90 天后生效。",
+        "type": "监管 / 执法"
+      }
     },
     {
       "id": "google-antigravity-teamwork-20261113",
@@ -65,7 +83,13 @@
       "summary": "Google Research described /teamwork, a multi-agent feature in Antigravity that runs parallel agents against automated checkers over multi-day tasks. Google says it autonomously produced a roughly 1.8-million-line Lean formalization related to the Weil conjectures and helped on several open problems; the results are self-reported and await independent review.",
       "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/",
       "type": "Capability release",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "Google Research",
+        "title": "Google 称其多智能体系统自主完成了一项大型机器验证的数学形式化",
+        "summary": "Google Research 介绍了 Antigravity 中的多智能体功能 /teamwork：多个智能体并行工作，在持续数天的任务中接受自动检查器的验证。Google 称，它自主完成了一项约 180 万行、与韦伊猜想相关的 Lean 形式化，并在若干公开难题上提供了帮助；这些结果为 Google 自行报告，尚待独立审查。",
+        "type": "能力发布"
+      }
     },
     {
       "id": "cursor-trojanized-claude-code-extension-20261113",
@@ -75,7 +99,13 @@
       "summary": "Cursor disclosed that attackers used a key stolen via its AI provider Fireworks to read stored coding-agent traces containing credentials, then served tampered copies of Anthropic’s Claude Code extension from Cursor’s marketplace cache for about 11 hours. Up to 5,000 users may have received the build, which tried to install SSH backdoors.",
       "url": "https://www.bleepingcomputer.com/news/security/cursor-confirms-security-breach-led-to-malicious-claude-code-extension",
       "type": "Security incident",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "BleepingComputer / Cursor",
+        "title": "Cursor 证实遭入侵：向开发者分发了被植入后门的 Claude Code 扩展",
+        "summary": "Cursor 披露，攻击者利用从其 AI 服务商 Fireworks 窃取的密钥，读取了存储的编程智能体运行记录，从中获取凭据，随后在约 11 小时内通过 Cursor 的扩展市场缓存分发被篡改的 Anthropic Claude Code 扩展。最多可能有 5,000 名用户下载了该版本，它会试图安装 SSH 后门。",
+        "type": "安全事件"
+      }
     },
     {
       "id": "fbi-artex-flash-20261113",
@@ -85,7 +115,13 @@
       "summary": "An FBI FLASH alert says multiple threat actors have used the open-source ARTEX agentic penetration-testing framework since August 2026 to automate intrusions across many sectors, in some cases reaching privileged access in under three hours. Named campaigns include theft of personal data on about 67,000 people in South Korea.",
       "url": "https://www.ic3.gov/CSA/2026/261113.pdf",
       "type": "Government security advisory",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "美国联邦调查局（IC3）",
+        "title": "FBI 警告：攻击者正把一款自主 AI 黑客框架当作武器",
+        "summary": "FBI 发布 FLASH 警报称，自 2026 年 8 月以来，多个威胁行为者利用开源的 ARTEX 智能体渗透测试框架，在多个行业自动化实施入侵，有时不到三小时就获得特权访问。点名的攻击活动包括窃取约 67,000 名韩国人的个人数据。",
+        "type": "政府安全通告"
+      }
     },
     {
       "id": "ny-raise-registration-digit-20261110",
@@ -95,7 +131,13 @@
       "summary": "New York opened registration for large frontier AI developers under the RAISE Act, run by a new state office (DIGIT) and backed by a new independent evaluation center. From January 2027 covered labs must publish safety frameworks, report critical safety incidents within 72 hours and file regular risk assessments.",
       "url": "https://techcrunch.com/2026/11/10/openai-anthropic-face-new-oversight-as-new-yorks-ai-safety-law-takes-effect/",
       "type": "Regulation / enforcement",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "TechCrunch / 纽约州",
+        "title": "纽约州依据其 AI 安全法开始登记前沿 AI 开发者",
+        "summary": "纽约州依据《RAISE 法案》开放大型前沿 AI 开发者登记，由新设的州办公室（DIGIT）负责，并有一个新的独立评估中心提供支持。自 2027 年 1 月起，受监管的实验室须公布安全框架、在 72 小时内报告重大安全事件，并定期提交风险评估。",
+        "type": "监管 / 执法"
+      }
     },
     {
       "id": "cloudsek-silent-lynx-hermes-20261111",
@@ -105,7 +147,13 @@
       "summary": "CloudSEK reports that an operator linked to the Silent Lynx group ran a self-hosted Hermes agent on DeepSeek to handle reconnaissance, collection and log cleanup, taking more than 2,000 documents from Tajikistan’s government systems. Reuters reported the findings; the attribution is CloudSEK’s.",
       "url": "https://www.cloudsek.com/blog/off-the-rails-inside-an-exposed-silent-lynx-server",
       "type": "Threat intelligence report",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "CloudSEK（路透社报道）",
+        "title": "间谍组织利用 AI 智能体窃取塔吉克斯坦政府文件",
+        "summary": "CloudSEK 报告称，一名与 Silent Lynx 组织有关的攻击者在 DeepSeek 上运行自托管的 Hermes 智能体，负责侦察、收集和清理日志，从塔吉克斯坦政府系统中窃取了 2,000 多份文件。路透社报道了这一发现；归因结论来自 CloudSEK。",
+        "type": "威胁情报报告"
+      }
     },
     {
       "id": "anthropic-anvil-automated-redteam-20261112",
@@ -115,7 +163,13 @@
       "summary": "Anthropic says Anvil found more and stronger jailbreaks than human red-teamers across biological, cyber, and model-extraction safeguards, and helped improve classifiers. Tests use internal models and classifier visibility, with safeguards disabled on the attacker model; Anthropic says this privileged setup is not currently available to external attackers.",
       "url": "https://safeguards.anthropic.com/2026/automated-red-teaming/",
       "type": "Primary safety evaluation",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "Anthropic 安全防护团队",
+        "title": "Anthropic 报告：自动化红队智能体攻破了自家安全防护",
+        "summary": "Anthropic 称，Anvil 在生物、网络和模型窃取等安全防护上发现的越狱方法比人类红队更多、更强，并帮助改进了分类器。测试使用内部模型并可查看分类器内部信息，攻击方模型的安全防护被关闭；Anthropic 表示，外部攻击者目前无法获得这种特权条件。",
+        "type": "一手安全评估"
+      }
     },
     {
       "id": "ny-ag-asset-unit-20261117",
@@ -125,7 +179,13 @@
       "summary": "Attorney General Letitia James created the AI Safety, Standards, Enforcement, and Transparency (ASSET) Unit to lead enforcement of the RAISE Act, which takes effect on 1 January 2027, along with chatbot-safety and data-security laws. The unit is still being staffed and has not announced any actions.",
       "url": "https://ag.ny.gov/press-release/2026/attorney-general-james-announces-creation-ai-safety-standards-enforcement-and",
       "type": "Regulation / enforcement",
-      "checkedAt": "2026-11-17T15:15:48.879Z"
+      "checkedAt": "2026-11-17T15:15:48.879Z",
+      "zh": {
+        "publisher": "纽约州总检察长",
+        "title": "纽约州总检察长成立专门部门，执行该州前沿 AI 安全法",
+        "summary": "总检察长 Letitia James 成立了 AI 安全、标准、执法与透明度（ASSET）部门，负责执行将于 2027 年 1 月 1 日生效的《RAISE 法案》，以及聊天机器人安全和数据安全相关法律。该部门仍在招募人员，尚未宣布任何行动。",
+        "type": "监管 / 执法"
+      }
     }
   ],
   "excluded": [

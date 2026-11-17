@@ -15,32 +15,50 @@ function nextPacificStart(now){
 }
 let snapshot=null;
 let currentDays=7;
+const isZh=document.documentElement.lang.toLowerCase().startsWith('zh');
+const locale=isZh?'zh-CN':'en-US';
+const T=isZh?{
+  pt:'（太平洋时间）',notScheduled:'未排期',unavailable:'暂不可用',feedUnavailable:'来源暂不可用。',noSources:'暂无已审核的来源。',
+  pts:v=>v+' 个百分点',unchanged:'与上次更新持平',rose:v=>'▲ 较上次更新上升 '+v+' 个百分点',fell:v=>'▼ 较上次更新下降 '+v+' 个百分点',
+  odds:n=>'，约为 1/'+n,gridLabel:v=>'100 个方块中填满 '+v+' 个',gridCaption:v=>v+' / 100 · 每个方块代表 1% 的概率',
+  noData:'该时间段内暂无记录。',noDataSr:'所选时间段内没有记录的估计值。',summary:(n,d,a,b)=>'最近 '+d+' 天共 '+n+' 个估计值，从 '+a+' 变为 '+b+'。',
+  pointLabel:(p,t)=>t+'：'+p,reviewed:t=>'审核于 '+t,newTab:t=>t+'（在新标签页打开）',sources:n=>n+' 条来源',english:'英文',
+  status:{debunked:'已辟谣',disputed:'存在争议',unavailable:'无法访问',superseded:'已被取代'},
+}:{
+  pt:' PT',notScheduled:'Not scheduled',unavailable:'Unavailable',feedUnavailable:'Source feed unavailable.',noSources:'No reviewed sources are currently included.',
+  pts:v=>v+' pts',unchanged:'Unchanged since the last update',rose:v=>'▲ '+v+' pts since the last update',fell:v=>'▼ '+v+' pts since the last update',
+  odds:n=>', or about 1 in '+n,gridLabel:v=>v+' out of 100 squares filled',gridCaption:v=>v+' in 100 · each square is a 1-in-100 chance',
+  noData:'No estimates recorded in this range yet.',noDataSr:'No estimates were recorded in the selected period.',summary:(n,d,a,b)=>n+' estimates in the last '+d+' days, from '+a+' to '+b+'.',
+  pointLabel:(p,t)=>p+' on '+t,reviewed:t=>'Reviewed '+t,newTab:t=>t+' (opens in a new tab)',sources:n=>n+(n===1?' source':' sources'),english:'',
+  status:{},
+};
+const when=(value,options={})=>new Intl.DateTimeFormat(locale,{timeZone:pacificTimeZone,month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false,...options}).format(new Date(value));
+const stamp=value=>when(value)+T.pt;
 function tick(){
   const now=new Date();
-  $('clock').textContent=pacificDate(now,{month:undefined,day:undefined,second:'2-digit'})+' PT';
   const remaining=Math.max(0,Math.floor((new Date(snapshot?.deadline||'2036-12-31T23:59:59Z')-now)/1000));
   $('count-days').textContent=Math.floor(remaining/86400).toLocaleString('en-US');
   $('count-hours').textContent=String(Math.floor(remaining/3600)%24).padStart(2,'0');
   $('count-minutes').textContent=String(Math.floor(remaining/60)%60).padStart(2,'0');
   $('count-seconds').textContent=String(remaining%60).padStart(2,'0');
-  if(snapshot)$('next').textContent=snapshot.scheduleActive?pacificDate(nextPacificStart(now))+' PT':'Not scheduled';
+  if(snapshot)$('next').textContent=snapshot.scheduleActive?stamp(nextPacificStart(now)):T.notScheduled;
 }
 function text(tag,value,className){const el=document.createElement(tag);el.textContent=value;if(className)el.className=className;return el;}
 function safeUrl(value){const u=new URL(value);if(u.protocol!=='https:')throw new Error('Invalid source URL');return u.href;}
 const svgNS='http://www.w3.org/2000/svg';
 const svg=(tag,attributes={})=>{const el=document.createElementNS(svgNS,tag);for(const [key,value] of Object.entries(attributes))el.setAttribute(key,String(value));return el;};
 const percent=value=>(value*100).toFixed(1)+'%';
-const points=value=>(value>0?'+':value<0?'−':'')+Math.abs(value*100).toFixed(1)+' pts';
+const signedPts=value=>(value>0?'+':value<0?'−':'')+T.pts(Math.abs(value*100).toFixed(1));
 const sortedHistory=()=>(snapshot?.history||[]).filter(p=>Number.isFinite(p.probability)&&Number.isFinite(Date.parse(p.at))).sort((a,b)=>new Date(a.at)-new Date(b.at));
-const sourceDate=value=>{const d=new Date(value+'T12:00:00Z');return Number.isFinite(+d)?new Intl.DateTimeFormat('en-US',{timeZone:'UTC',month:'short',day:'numeric',year:'numeric'}).format(d):value;};
+const sourceDate=value=>{const d=new Date(value+'T12:00:00Z');return Number.isFinite(+d)?new Intl.DateTimeFormat(locale,{timeZone:'UTC',month:'short',day:'numeric',year:'numeric'}).format(d):value;};
 
 // 100-square odds grid: one square per 1-in-100 chance, the last one partly filled.
 function buildGrid(){const grid=$('odds-grid');grid.replaceChildren(...Array.from({length:100},()=>text('span','','cell')));}
 function renderGrid(p){
   const grid=$('odds-grid'),value=Math.min(100,Math.max(0,p*100)),full=Math.floor(value+1e-9),part=value-full;
   [...grid.children].forEach((cell,i)=>{cell.className='cell'+(i<full?' filled':i===full&&part>0.001?' partial':'');cell.style.setProperty('--i',i);if(i===full)cell.style.setProperty('--fill',(part*100).toFixed(1)+'%');});
-  grid.setAttribute('aria-label',value.toFixed(1)+' out of 100 squares filled');
-  $('odds-caption').textContent=value.toFixed(1)+' in 100 · each square is a 1-in-100 chance';
+  grid.setAttribute('aria-label',T.gridLabel(value.toFixed(1)));
+  $('odds-caption').textContent=T.gridCaption(value.toFixed(1));
   requestAnimationFrame(()=>grid.classList.add('ready'));
 }
 
@@ -53,9 +71,9 @@ function renderHistory(days){
   const end=new Date(snapshot.publishedAt),start=new Date(end-days*86400000);
   const pts=sortedHistory().filter(p=>new Date(p.at)>=start&&new Date(p.at)<=end);
   const setReadout=(id,value,cls='')=>{$(id).textContent=value;$(id).className=cls;};
-  if(!pts.length){['history-change','history-low','history-high'].forEach(id=>setReadout(id,'—'));$('history-summary').textContent='No estimates were recorded in the selected period.';const empty=svg('text',{x:W/2,y:H/2,class:'chart-empty'});empty.textContent='No estimates recorded in this range yet.';chart.append(empty);return;}
+  if(!pts.length){['history-change','history-low','history-high'].forEach(id=>setReadout(id,'—'));$('history-summary').textContent=T.noDataSr;const empty=svg('text',{x:W/2,y:H/2,class:'chart-empty'});empty.textContent=T.noData;chart.append(empty);return;}
   const values=pts.map(p=>p.probability*100),low=Math.min(...values),high=Math.max(...values),change=pts.at(-1).probability-pts[0].probability;
-  setReadout('history-change',pts.length>1?points(change):'—',change>0.0005?'rise':change<-0.0005?'fall':'');
+  setReadout('history-change',pts.length>1?signedPts(change):'—',change>0.0005?'rise':change<-0.0005?'fall':'');
   setReadout('history-low',low.toFixed(1)+'%');setReadout('history-high',high.toFixed(1)+'%');
 
   const m={top:18,right:14,bottom:34,left:48},innerW=W-m.left-m.right,innerH=H-m.top-m.bottom;
@@ -64,11 +82,10 @@ function renderHistory(days){
   const t0=+new Date(pts[0].at),t1=+new Date(pts.at(-1).at),rangeX=Math.max(1,t1-t0);
   const x=p=>pts.length===1?m.left+innerW/2:m.left+((+new Date(p.at)-t0)/rangeX)*innerW;
   const y=p=>m.top+(1-(p.probability*100-minY)/rangeY)*innerH;
-  const decimals=step<1?(step<.5?1:1):0;
+  const decimals=step<1?1:0;
   for(let v=minY;v<=maxY+1e-9;v+=step){const gy=m.top+(1-(v-minY)/rangeY)*innerH;chart.append(svg('line',{x1:m.left,y1:gy,x2:W-m.right,y2:gy,class:'chart-grid'}));const label=svg('text',{x:m.left-10,y:gy+4,class:'chart-axis','text-anchor':'end'});label.textContent=v.toFixed(decimals)+'%';chart.append(label);}
   const shortSpan=rangeX<2*86400000;
-  const axisFormat=new Intl.DateTimeFormat('en-US',{timeZone:pacificTimeZone,month:'short',day:'numeric',...(shortSpan?{hour:'2-digit',minute:'2-digit',hour12:false}:{})});
-  const timeFormat=new Intl.DateTimeFormat('en-US',{timeZone:pacificTimeZone,month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false});
+  const axisFormat=new Intl.DateTimeFormat(locale,{timeZone:pacificTimeZone,month:'short',day:'numeric',...(shortSpan?{hour:'2-digit',minute:'2-digit',hour12:false}:{})});
   (pts.length===1?[pts[0]]:[pts[0],pts.at(-1)]).forEach((p,i,arr)=>{const label=svg('text',{x:arr.length===1?m.left+innerW/2:i?W-m.right:m.left,y:H-10,class:'chart-axis','text-anchor':arr.length===1?'middle':i?'end':'start'});label.textContent=axisFormat.format(new Date(p.at));chart.append(label);});
 
   const coords=pts.map(p=>[x(p),y(p)]),line=coords.map((c,i)=>(i?'L':'M')+c[0].toFixed(1)+' '+c[1].toFixed(1)).join(' ');
@@ -77,9 +94,9 @@ function renderHistory(days){
   gradient.append(svg('stop',{offset:'0%','stop-color':accent,'stop-opacity':.18}),svg('stop',{offset:'100%','stop-color':accent,'stop-opacity':0}));defs.append(gradient);chart.append(defs);
   if(pts.length>1){chart.append(svg('path',{d:`${line} L${coords.at(-1)[0].toFixed(1)} ${m.top+innerH} L${coords[0][0].toFixed(1)} ${m.top+innerH} Z`,class:'chart-area'}),svg('path',{d:line,class:'chart-line'}));}
   const guide=svg('line',{y1:m.top,y2:m.top+innerH,class:'chart-guide',visibility:'hidden'});chart.append(guide);
-  const dots=pts.map((p,i)=>{const last=i===pts.length-1;const dot=svg('circle',{cx:coords[i][0],cy:coords[i][1],r:last?5:3.5,class:'chart-point'+(last?' latest':''),tabindex:0,'aria-label':percent(p.probability)+' on '+timeFormat.format(new Date(p.at))+' PT'});chart.append(dot);return dot;});
+  const dots=pts.map((p,i)=>{const last=i===pts.length-1;const dot=svg('circle',{cx:coords[i][0],cy:coords[i][1],r:last?5:3.5,class:'chart-point'+(last?' latest':''),tabindex:0,'aria-label':T.pointLabel(percent(p.probability),stamp(p.at))});chart.append(dot);return dot;});
   function show(i){
-    const [px,py]=coords[i];tooltip.replaceChildren(text('strong',percent(pts[i].probability)),text('span',timeFormat.format(new Date(pts[i].at))+' PT'));tooltip.hidden=false;
+    const [px,py]=coords[i];tooltip.replaceChildren(text('strong',percent(pts[i].probability)),text('span',stamp(pts[i].at)));tooltip.hidden=false;
     tooltip.style.left=Math.min(W-70,Math.max(70,px))/W*100+'%';tooltip.style.top=py/H*100+'%';
     guide.setAttribute('x1',px);guide.setAttribute('x2',px);guide.setAttribute('visibility','visible');
     dots.forEach((d,j)=>{d.classList.toggle('selected',j===i);d.setAttribute('r',j===i?6:j===pts.length-1?5:3.5);});
@@ -89,39 +106,44 @@ function renderHistory(days){
   const nearest=event=>{const r=chart.getBoundingClientRect(),vx=(event.clientX-r.left)/r.width*W;let best=0;coords.forEach((c,i)=>{if(Math.abs(c[0]-vx)<Math.abs(coords[best][0]-vx))best=i;});return best;};
   chart.onpointermove=event=>show(nearest(event));chart.onpointerleave=hide;
   dots.forEach((d,i)=>{d.addEventListener('focus',()=>show(i));d.addEventListener('blur',hide);});
-  $('history-summary').textContent=pts.length+' estimates in the last '+days+' days, from '+percent(pts[0].probability)+' to '+percent(pts.at(-1).probability)+'.';
+  $('history-summary').textContent=T.summary(pts.length,days,percent(pts[0].probability),percent(pts.at(-1).probability));
 }
 
 function renderChange(){
   const h=sortedHistory(),el=$('change');if(h.length<2){el.hidden=true;return;}
   const delta=h.at(-1).probability-h.at(-2).probability;el.hidden=false;
-  if(Math.abs(delta)<0.0005){el.className='change';el.textContent='Unchanged since the last update';return;}
-  el.className='change '+(delta>0?'rise':'fall');el.textContent=(delta>0?'▲ ':'▼ ')+Math.abs(delta*100).toFixed(1)+' pts since the last update';
+  if(Math.abs(delta)<0.0005){el.className='change';el.textContent=T.unchanged;return;}
+  const v=Math.abs(delta*100).toFixed(1);el.className='change '+(delta>0?'rise':'fall');el.textContent=delta>0?T.rose(v):T.fell(v);
 }
 
+// On the Chinese page, use a source's translation when there is one; otherwise show the English original, labelled.
+const localized=s=>isZh&&s.zh?.title&&s.zh?.summary?{...s,...s.zh,translated:true}:{...s,translated:!isZh};
 function renderSources(data){
   const list=$('sources');list.replaceChildren();
-  data.sources.forEach(s=>{
+  data.sources.map(localized).forEach(s=>{
     const article=text('article','','source'),meta=text('div','','source-meta');
     meta.append(text('span',s.publisher),text('span',sourceDate(s.date)),text('span',s.type,'source-type'));
+    if(!s.translated)meta.append(text('span',T.english,'source-lang'));
     const h3=document.createElement('h3'),a=document.createElement('a');a.href=safeUrl(s.url);a.target='_blank';a.rel='noopener noreferrer';
-    a.append(document.createTextNode(s.title),text('span','↗','arrow'));a.lastChild.setAttribute('aria-hidden','true');a.setAttribute('aria-label',s.title+' (opens in a new tab)');h3.append(a);
-    article.append(meta,h3,text('p',s.summary),text('div','Reviewed '+pacificDate(s.checkedAt)+' PT','source-check'));list.append(article);
+    if(!s.translated){h3.lang='en';}
+    a.append(document.createTextNode(s.title),text('span','↗','arrow'));a.lastChild.setAttribute('aria-hidden','true');a.setAttribute('aria-label',T.newTab(s.title));h3.append(a);
+    const summary=text('p',s.summary);if(!s.translated)summary.lang='en';
+    article.append(meta,h3,summary,text('div',T.reviewed(stamp(s.checkedAt)),'source-check'));list.append(article);
   });
-  if(!data.sources.length)list.append(text('p','No reviewed sources are currently included.','muted'));
-  $('count').textContent=data.sources.length+(data.sources.length===1?' source':' sources');
-  if(data.excluded?.length){$('excluded-section').hidden=false;$('excluded-count').textContent='('+data.excluded.length+')';$('excluded').replaceChildren();for(const s of data.excluded){const a=text('a',s.title+' — '+s.status);a.href=safeUrl(s.url);a.target='_blank';a.rel='noopener noreferrer';$('excluded').append(a);}}
+  if(!data.sources.length)list.append(text('p',T.noSources,'muted'));
+  $('count').textContent=T.sources(data.sources.length);
+  if(data.excluded?.length){$('excluded-section').hidden=false;$('excluded-count').textContent='('+data.excluded.length+')';$('excluded').replaceChildren();for(const s of data.excluded){const a=text('a',s.title+' — '+(T.status[s.status]||s.status));a.href=safeUrl(s.url);a.target='_blank';a.rel='noopener noreferrer';$('excluded').append(a);}}
 }
 
 async function load(){try{
   const r=await fetch('/snapshot.json',{cache:'no-store'});if(!r.ok)throw new Error('Snapshot unavailable');
   const data=await r.json();if(!Number.isFinite(data.probability)||data.probability<0||data.probability>1)throw new Error('Invalid estimate');snapshot=data;
   $('probability').textContent=(data.probability*100).toFixed(1);
-  if(data.probability>0&&data.probability<.5)$('odds').textContent=', or about 1 in '+Math.round(1/data.probability);
+  if(data.probability>0&&data.probability<.5)$('odds').textContent=T.odds(Math.round(1/data.probability));
   renderGrid(data.probability);renderChange();
-  $('published').textContent=pacificDate(data.publishedAt)+' PT';$('reviewed').textContent=pacificDate(data.reviewedAt)+' PT';
+  $('published').textContent=stamp(data.publishedAt);$('reviewed').textContent=stamp(data.reviewedAt);
   renderHistory(currentDays);renderSources(data);tick();
-}catch(error){$('sources').replaceChildren(text('p','Source feed unavailable.','muted'));$('published').textContent='Unavailable';$('reviewed').textContent='Unavailable';}}
+}catch(error){$('sources').replaceChildren(text('p',T.feedUnavailable,'muted'));$('published').textContent=T.unavailable;$('reviewed').textContent=T.unavailable;}}
 
 document.querySelectorAll('.range-button').forEach(button=>button.addEventListener('click',()=>snapshot&&renderHistory(Number(button.dataset.days))));
 let lastWidth=0;
