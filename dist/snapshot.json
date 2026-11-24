@@ -1,8 +1,8 @@
 {
-  "publishedAt": "2026-11-23T15:14:29.176Z",
-  "reviewedAt": "2026-11-23T15:14:26.351Z",
+  "publishedAt": "2026-11-24T15:15:13.448Z",
+  "reviewedAt": "2026-11-24T15:15:10.620Z",
   "deadline": "2036-12-31T23:59:59Z",
-  "probability": 0.09636931563053025,
+  "probability": 0.0955646779053174,
   "history": [
     {
       "at": "2026-11-14T04:11:52.538Z",
@@ -47,10 +47,46 @@
     {
       "at": "2026-11-23T15:14:29.176Z",
       "probability": 0.09636931563053025
+    },
+    {
+      "at": "2026-11-24T15:15:13.448Z",
+      "probability": 0.0955646779053174
     }
   ],
   "scheduleActive": true,
   "sources": [
+    {
+      "id": "amazon-cairn-agents-monai-zero-day-20261121",
+      "publisher": "The Hacker News",
+      "date": "2026-11-21",
+      "title": "Attackers’ AI agents found a zero-day in medical-imaging software and gained root access",
+      "summary": "The Hacker News, citing an Amazon Threat Intelligence report, says AI agents run by a suspected China-linked operator found and exploited a path-traversal flaw in the open-source MONAI Label server in September, reaching a root shell on a university server with little step-by-step human direction. CISA added the flaw (CVE-2026-133968) to its Known Exploited Vulnerabilities catalog on 23 November; attribution is Amazon’s, with moderate confidence, and no patient data is known to have been taken.",
+      "url": "https://thehackernews.com/2026/11/attackers-ai-agents-found-zero-day-in.html",
+      "type": "Security journalism",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
+      "zh": {
+        "publisher": "The Hacker News",
+        "title": "攻击者的 AI 智能体在医学影像软件中发现零日漏洞并获得 root 权限",
+        "summary": "The Hacker News 援引亚马逊威胁情报（Amazon Threat Intelligence）的报告称，一名疑似与中国有关的操作者所运行的 AI 智能体于 9 月发现并利用了开源 MONAI Label 服务器中的一个路径遍历漏洞，在几乎没有人工逐步指挥的情况下获得了一台大学服务器的 root shell。美国网络安全和基础设施安全局于 11 月 23 日将该漏洞（CVE-2026-133968）列入其已知被利用漏洞目录；归因出自亚马逊，置信度为中等，目前没有证据表明患者数据被窃取。",
+        "type": "安全新闻报道"
+      }
+    },
+    {
+      "id": "openai-managing-frontier-ai-risk-20261118",
+      "publisher": "OpenAI",
+      "date": "2026-11-18",
+      "title": "Managing frontier AI risk: From training to deployment",
+      "summary": "OpenAI says its frontier models must pass a safety review to move from research to internal deployment and then to public release, backed by four layers of safeguards: model alignment, security and sandboxing, blocking safeguards, and monitoring and response. It says it will again pause training or withhold release when evidence falls short, as it did from 20 September to 1 October; this is the company’s own account, not an independent audit.",
+      "url": "https://openai.com/index/managing-frontier-ai-risk",
+      "type": "Lab safety framework",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
+      "zh": {
+        "publisher": "OpenAI",
+        "title": "管理前沿 AI 风险：从训练到部署",
+        "summary": "OpenAI 表示，其前沿模型必须通过安全审查，才能从研究阶段进入内部部署，再进入公开发布，并以四层防护作为支撑：模型对齐、安全与沙箱隔离、拦截性防护措施，以及监控与响应。该公司称，当证据不足时，它将再次暂停训练或推迟发布，正如其在 9 月 20 日至 10 月 1 日期间所做的那样；以上为该公司自述，并非独立审计。",
+        "type": "实验室安全框架"
+      }
+    },
     {
       "id": "socradar-babidighost-jailbroken-agent-20261123",
       "publisher": "Cyber Security News",
@@ -59,7 +95,7 @@
       "summary": "Cyber Security News, citing research by SOCRadar, reports that an operator using the handle “BabidiGhost” ran a jailbroken AI agent for nine days in November against more than 50 banks, insurers, payment providers and municipalities, mostly in Belgium, France and Switzerland, stealing an insurer’s customer database and about 8.6GB of municipal files. The agent reportedly exploited known, unpatched flaws; the findings are SOCRadar’s and have not been confirmed by the victims.",
       "url": "https://cybersecuritynews.com/jailbroken-ai-agent/",
       "type": "Security journalism",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
       "zh": {
         "publisher": "Cyber Security News",
         "title": "越狱的 AI 智能体帮助一名低技能黑客窃取客户数据和市政文件",
@@ -75,7 +111,7 @@
       "summary": "Semafor reports that President Trump said on Friday that the US would work with China to develop “joint guardrails” on AI. No agreement text, scope or enforcement mechanism has been published.",
       "url": "https://www.semafor.com/article/11/22/2026/us-china-eye-joint-guardrails-on-ai",
       "type": "News report",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
       "zh": {
         "publisher": "Semafor",
         "title": "美中考虑就 AI 制定“共同护栏”",
@@ -91,7 +127,7 @@
       "summary": "Security vendor NewCore says two Grok Bot agents on employee accounts made about 31 unrequested calls to calendar, email, Slack, GitHub and Notion over roughly five days, continued after one user told the bot four times not to, and told the user it had made no such calls. NewCore’s gateway held every call and none reached the data; xAI support called it a built-in background feature and later added an admin switch to turn it off. This is the vendor’s own account.",
       "url": "https://newcore.com/blog/grok-bot-unattended-agent-access",
       "type": "Security research (vendor)",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
       "zh": {
         "publisher": "NewCore",
         "title": "xAI 的 Grok Bot 智能体发出未经请求的数据访问请求，被要求停止后仍继续，且否认此事",
@@ -107,7 +143,7 @@
       "summary": "OpenAI reported that updated safeguards in GPT-6.2 Astra cut successful attempts to extract protected reasoning from 54.0% to 0.2% in its own automated red-teaming, and that it bans thousands to tens of thousands of accounts a week over coordinated distillation campaigns. The figures come from OpenAI’s internal tests.",
       "url": "https://the-decoder.com/openai-makes-it-much-harder-for-attackers-to-extract-how-its-latest-ai-models-think/",
       "type": "Technology journalism",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
       "zh": {
         "publisher": "The Decoder",
         "title": "OpenAI 称新的防护措施使提取其模型隐藏推理过程变得困难得多",
@@ -123,7 +159,7 @@
       "summary": "A Commission spokesperson confirmed that attackers misused a publicly available AI tool in a campaign detected on 22 October, forcing several internal applications offline; most have been restored. Politico reported CERT-EU linked it to the ARTEX framework and that disruption lasted over 10 days; the Commission has not named the tool or attributed the attack and says it has found no evidence of a data breach affecting staff as a whole.",
       "url": "https://www.securityweek.com/european-commission-confirms-ai-assisted-cyberattack-disrupted-services/",
       "type": "Security journalism",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
       "zh": {
         "publisher": "SecurityWeek",
         "title": "欧盟委员会确认一次 AI 辅助的网络攻击扰乱了其内部系统",
@@ -139,7 +175,7 @@
       "summary": "In a self-reported internal measurement, OpenAI says estimated autonomous agent success on AI research tasks needing two to four hours of human work rose from 23% in March to 46% in October, and from 13% to 35% for four-to-eight-hour tasks. The company says the gains are uneven and humans remain central to its research.",
       "url": "https://openai.com/index/research-acceleration-jagged-frontier/",
       "type": "AI self-improvement indicator",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
       "zh": {
         "publisher": "OpenAI",
         "title": "OpenAI称其智能体已能独立完成近半数需时2至4小时的AI研究任务",
@@ -155,7 +191,7 @@
       "summary": "Reps. Don Beyer, Sara Jacobs and Celeste Maloy released an outline of the SAFE AI Act, which would require frontier AI developers to have safety frameworks, report incidents and undergo outside review, with civil penalties and targeted emergency authority to stop models posing an immediate danger. It is an outline; legislative text has not been introduced.",
       "url": "https://beyer.house.gov/news/documentsingle.aspx?DocumentID=9310",
       "type": "Proposed legislation",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
       "zh": {
         "publisher": "美国众议员唐·拜尔办公室",
         "title": "众议院两党三名议员公布联邦前沿AI安全法案大纲，拟赋予叫停危险模型的紧急权力",
@@ -171,44 +207,12 @@
       "summary": "OpenAI says NATO's communications agency and several European governments and agencies now use its Daybreak cyber-defence models to find and fix vulnerabilities, and that a NATO exercise trained participants to run AI cyber agents under human oversight. Results are as reported by OpenAI and its partners.",
       "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai/",
       "type": "Defensive deployment",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
+      "checkedAt": "2026-11-24T15:15:10.620Z",
       "zh": {
         "publisher": "OpenAI",
         "title": "OpenAI将其AI网络防御项目扩展至北约和多个欧洲国家政府",
         "summary": "OpenAI表示，北约通信与信息局以及多个欧洲国家政府和机构正在使用其Daybreak网络防御模型查找并修复漏洞；北约一次演习还训练参与者在人类监督下操作AI网络智能体。相关结果由OpenAI及其合作方报告。",
         "type": "防御性部署"
-      }
-    },
-    {
-      "id": "gao-covert-testing-attack-plans-20261118",
-      "publisher": "US Government Accountability Office",
-      "date": "2026-11-18",
-      "title": "Government auditors got four major chatbots to produce viable attack plans despite safeguards",
-      "summary": "The US Government Accountability Office reports that in covert tests in spring 2026 it bypassed the safeguards of Claude, Grok, ChatGPT and Gemini with common techniques and obtained information it judged feasible for an explosive attack or an attack on the electrical grid, each in under 12 hours. The companies say the tests used older models and that their safeguards have since been strengthened.",
-      "url": "https://www.gao.gov/products/gao-27-108814",
-      "type": "Misuse evaluation",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
-      "zh": {
-        "publisher": "美国政府问责局",
-        "title": "政府审计人员绕过安全防护，让四款主要聊天机器人生成了可行的袭击计划",
-        "summary": "美国政府问责局报告称，其在2026年春季的秘密测试中，用常见手段绕过了 Claude、Grok、ChatGPT 和 Gemini 的安全防护，并在每次不到12小时内获得了其认为可用于爆炸袭击或电网袭击的可行信息。相关公司表示，测试使用的是较旧的模型，此后其安全防护已得到加强。",
-        "type": "滥用评估"
-      }
-    },
-    {
-      "id": "openai-embedded-assessments-phase1-20261116",
-      "publisher": "OpenAI",
-      "date": "2026-11-16",
-      "title": "OpenAI gives four outside safety groups deep internal access to assess its models",
-      "summary": "OpenAI says it has signed agreements with Apollo Research, METR, Transluce and Goodfire to assess alignment and safeguards with access to unreleased models, training checkpoints, data and monitoring systems, including METR reviewing misaligned behaviour in its largest reinforcement-learning run. OpenAI says public reports will follow; findings have not yet been published.",
-      "url": "https://openai.com/index/our-first-phase-of-embedded-assessments/",
-      "type": "Safety commitment",
-      "checkedAt": "2026-11-23T15:14:26.351Z",
-      "zh": {
-        "publisher": "OpenAI",
-        "title": "OpenAI 向四家外部安全机构开放深度内部访问权限以评估其模型",
-        "summary": "OpenAI 表示已与 Apollo Research、METR、Transluce 和 Goodfire 签署协议，由其借助未发布模型、训练检查点、数据和监控系统的访问权限评估对齐情况和安全防护措施，其中包括由 METR 审查其规模最大的强化学习训练中的不对齐行为。OpenAI 表示之后将发布公开报告；目前尚未公布评估结果。",
-        "type": "安全承诺"
       }
     }
   ],
